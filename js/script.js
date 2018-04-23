@@ -16,20 +16,12 @@
 
 // Define the messages used in the game.
 let messages = {
-	"Help": {
-		"Title": "Help",
-		"Subtitle": "Some useful Links",
-		"Message": "<p><a href='https://monogatari.io/documentation/'>Documentation</a> - Everything you need to know.</p><p><a href='https://monogatari.io/demo/'>Demo</a> - A simple Demo.</p>"
-	}
+
 };
 
 // Define the notifications used in the game
 let notifications = {
-	"Welcome": {
-		title: "Welcome",
-		body: "This is the Monogatari VN Engine",
-		icon: ""
-	}
+
 };
 
 // Define the Particles JS Configurations used in the game
@@ -69,10 +61,37 @@ const scenes = {
 
 // Define the Characters
 const characters = {
-	"h": {
-		"Name": "Hikaru",
-		"Color": "#5bcaff"
-	}
+	"d": {
+        "Name": "Delilah",
+        "Color": "#9b59b6",
+        "Directory": "delilah",
+        
+        "Images": {
+            "Happy": "happy.png",
+            "Sad": "sad.png",
+            "Relaxed": "relaxed.png",
+            "Libitina": "third_eye.png",
+            "iHappy": "happy_apple.png",
+            "iSad": "sad_apple.png",
+            "iRelaxed": "relaxed_apple.png",
+            "iLibitina": "third_eye_apple.png"
+        }
+    },
+    
+    "v": {
+        "Name": "Verdandi",
+        "Color": "#2c3e50"
+    },
+    
+    "t": {
+        "Name": "Tachanka",
+        "Color": "#2ecc71"
+    },
+    
+    "p": {
+        "Name": "{{player.Name}}",
+        "Color": "#3498db"
+    }
 };
 
 let script = {
@@ -81,7 +100,7 @@ let script = {
 		"notify Welcome",
 		{
 			"Input": {
-				"Text": "What is your name?",
+				"Text": "Enter your name:",
 				"Validation": function (input) {
 					return input.trim().length > 0;
 				},
@@ -89,15 +108,16 @@ let script = {
 					storage.player.Name = input;
 					return true;
 				},
-				"Warning": "You must enter a name!"
+				"Warning": "Name field cannot be blank."
 			}
 		},
-
-		"h Hi {{player.Name}} Welcome to Monogatari!",
+        
+        "show d Happy",
+		"d Ah, I see you there, ahaha...",
 
 		{
 			"Choice": {
-				"Dialog": "h Have you already read some documentation?",
+				"Dialog": "d Have you already read some documentation?",
 				"Yes": {
 					"Text": "Yes",
 					"Do": "jump Yes"
@@ -112,20 +132,20 @@ let script = {
 
 	"Yes": [
 
-		"h That's awesome!",
-		"h Then you are ready to go ahead and create an amazing Game!",
-		"h I can't wait to see what story you'll tell!",
+		"d That's awesome!",
+		"d Then you are ready to go ahead and create an amazing Game!",
+		"d I can't wait to see what story you'll tell!",
 		"end"
 	],
 
 	"No": [
 
-		"h You can do it now.",
+		"d You can do it now.",
 
 		"display message Help",
 
-		"h Go ahead and create an amazing Game!",
-		"h I can't wait to see what story you'll tell!",
+		"d Go ahead and create an amazing Game!",
+		"d I can't wait to see what story you'll tell!",
 		"end"
 	]
 };
