@@ -57,7 +57,9 @@ const images = {
 // Define the backgrounds for each scene.
 const scenes = {
     "classroom": "classroom.jpg",
-    "hallway": "classroom_hallway.jpg"
+    "hallway": "classroom_hallway.jpg",
+    "rooftop": "rooftop.jpg",
+    "title": "bg.jpg"
 };
 
 // Define the Characters
@@ -73,12 +75,10 @@ const characters = {
             "Relaxed": "relaxed.png",
             "Libitina": "third_eye.png",
             "Upset": "upset.png",
-            "iHappy": "happy_apple.png",
-            "iSad": "sad_apple.png",
-            "iRelaxed": "relaxed_apple.png",
-            "iLibitina": "third_eye_apple.png",
-            "iUpset": "upset_apple.png"
-        }
+            "PlayfulNervous": "nervous.png",
+            "Nervous": "seriously_nervous.png", 
+            "Glitched": "play_with_me.png"
+            }
     },
     
     "v": {
@@ -100,7 +100,7 @@ const characters = {
 let script = {
 	// The game starts here.
 	"Start": [
-		"notify Welcome",
+		//"notify Welcome",
 		{
 			"Input": {
 				"Text": "Enter your name:",
@@ -174,7 +174,7 @@ let script = {
         "The girls, in horror, scream and bolt through the doors.",
         "I look at her on the floor, helpless.",
         "hide d Upset",
-        "show d Sad",
+        "show d Nervous",
         "d You...",
         "d You should leave, {{player.Name}}...",
         "d Before I hurt you, too...",
@@ -191,27 +191,132 @@ let script = {
         //TODO: Start Verdandi's lines here
         "v {{player.Name}}!",
         "Verdandi runs towards me.",
+        "v Hey..",
+        "I had to look down to see her face.",
+        "She blushes and pouts.",
+        "v Ugh, of course.. Anyways, I saw some girls running out of the room.",
+        "v You.. <i>suuure</i> everything is fine in there?",
+        "I pause for a moment.",
+        "p Well...",
+        "p Delilah didn't seem alright.",
+        "p I guess she took offense to the girls' comments.",
+        "p Something about the story you're releasing in June?",
+        "v <i>Huuh?</i>",
+        "I forgot that she had short term memory loss.",
+        "p You and Delilah were working on a visual novel and were going to release it in June.",
+        "v Oh, right..  Forgot.",
+        "v Forgive my Amnesia.  Perhaps something greater is disturbing me.",
+        "p Has Delilah acted funny around you lately?",
+        "She pauses.",
+        "v No, no.. <i>Not thaaat..</i>",
+        "p Eh?",
+        "p Is something going on?",
+        "p It's not about the literature club, is it?",
+        "v Greater.",
+        "p Uhh... perhaps we can talk about this in a room and not in the hallway?",
+        "p I feel like I'm being watched...",
+        "v Sure.",
+        "Verdandi takes my hand and we run to the rooftop.",
         
-        /*
-        
-            Filler space
-            
-        */
-        
-        //"jump Chapter_Two"
-        "jump Chapter_Four"
+        "jump Chapter_Two"
     ],
     
-    /*
+    "Chapter_Two": [
+    	"scene rooftop",
+    	"We settle our belongings and sit down",
+    	"v So.. ",
+    	"v Just because Delilah is acting weird doesn't mean I'm involved.",
+    	"v Even I am suffering.  <b><i>Senselessly</i></b>.", 
+    	"p Verdandi, what are you saying?",
+    	"p Did you do something I don't know about?",
+    	"She smiles sadly.",
+    	"v I.. deal with the loss of my family everyday..",
+    	"v And their presence forces me to question if I should drop everything.",
+    	"v And unite with them somewhere...",
+    	"p ...",
+    	"p How long have you been suffering like this?",
+    	"v .. About thirteen.",
+    	"p Oh, dear Monika...",
+    	"v ...",
+    	"v For reasons unknown, my mother, gave birth to me,",
+    	"v and decided to take my life with her.",
+    	"p That's... that's not something you could control.",
+    	"p Your parents made that decision. You had no part.",
+    	"p You can't keep beating yourself up like this...",
+    	"v My new family is entirely Christian, and they have mass every Sunday.",
+    	"v Knowing all the trauma from my parents and the children at the priory",
+    	"v I lock myself up in the basement while they have mass.",
+    	"p So... you hide away?",
+    	"p I get it, but shouldn't you at least try to get back up on your feet?",
+    	"p You can't let this be second nature to you.",
+    	"p I had a friend with issues like that, and she wound up dead.",
+    	"p She couldn't forgive herself.",
+    	"v Hmm.. Well, I do like making short stories to make me feel better..",
+    	"v But even then that isn't enough.",
+    	{"Choice": {
+            "Yes": {
+                "Text": "Let God help you.",
+                "Do": "jump Chapter_Two:Yes"
+            },
+            "No": {
+                "Text": "Then I guess you have no other options.",
+                "Do": "jump Chapter_Two:Monika"
+            }
+        }}
+    ],
     
-        TODO: Write the scenes for Chapters 3 and 4.
+    "Chapter_Two:Yes": [
     
-    */
+    ],
+    
+    "Chapter_Two:Monika": [
+    	"v sdfgdfdsfgsdfdsf",
+    	"jump Failure"
+    ],
+    
+    "Chapter_Three": [
+    	"p Hay, Tachanka.",
+    	"t Hello My Friend",
+    	"Tachanka and I have been friends since childhood and nothing has split us apart.",
+    	"p So, what happened to you yesterday?",
+    	"t Um..... was sleeping?",
+    	"I know he's hiding <i>something</i>, but I'm sure he has a reason for it.",
+    	"p ..."
+    	"p OK?",
+    	"p Anyway, I tried calling Delilah, but she did not answer, and since you've known her longer than we have each other and live next to each other, that you would know?",
+    	"t ...",
+    	"t She...um...", 
+    	"t ...was not feeling well......",
+    	"I know he's lying, but I still can't take it within my self to ask about personal matters.", 
+    	"I'll let it go for now.",
+    	"p Well, on a side note, do you know what the lunch will be today?", 
+    	"p The food always taste so bad, am I right?", 
+    	"p Or am I <i>right</i>?",
+    	"t Da, you are very right.",
+    	"Tachanka smiles. I always know when he's smiling.", 
+    	"The one thing I always questioned was why he was always so protective of Delilah.", 
+    	"<i>Why he would get all chummy when something weird happened with her?</i>",
+    	"Delilah enters."
+		"d h..i...hi...",
+		"p oh hi Delilah.",    	
+		"t hello Delilah.",
+		"with a sweat kind voice",
+		"d hi Tackanka."
+		"p so Delilah are you free after School?",
+		"d o..oh um I needed to talk to you anyway too so ya.",
+		"She had a fake smile but I was not bothered and smiled back and said see you after school.",
+		"p see you after school",
+		"School started and we each went about our day although me and Tachanka were in the same class, yet Delilah was in the class next to us.",
+		"School was almost over and I was pondering wether to ask her where she was Yesterday, but I was still fighting with myself",
+		"Maybe I should ask now while I can?",
+		"maybe I should not do it?"
+
+    	
+    
+    
+    ],
     
     "Chapter_Four": [
-        /*
-        TODO: Write the scenes for this section.
-        */
         "scene black with fadeIn",
         "show d Sad",
         "d {{player.Name}}, ...",
@@ -227,12 +332,34 @@ let script = {
         "d I don't even <i>belong</i> here...",
         "Delilah breaks into a bawl.",
         "p Delilah, what do you mean?",
-        "d I'm clinically insane! Don't you understand?",
-        "d I was admitted into a hospital back in that... <i>other</i> world...",
-        "d You don't want ot know what's inside of me...",
+        "d You don't want to know what's inside of me...",
         "d No matter what I do, I always screw it up beautifully.",
         "d I'm a tragic mess. Hell, I probably make Monika look normal...",
-        "d <font family='Times, serif'>Maybe I should just delete myself here and atone for the sins I've committed here...</font>",
+        "d I've messed everything up again.",
+        "d This was supposed to be just a simple novel.",
+        "d There's wasn't supposed to be a bad ending.",
+        "d This was supposed to be my release from that <i>other</i> world...",
+        "d And then... I started doing things...",
+        "d I guess you guys call it sinning...",
+        "d I broke things.",
+        "d I played God.",
+        "d You may have saved them, but I willed it.",
+        "d I controlled their every move.",
+        function() {
+        	console.log("Releasing tachanka.js...");
+        	console.log("tachakna.js released successfully.");
+        	console.log("Releasing verdandi.js");
+        	console.log("verdandi.js released successfully.");
+        	return true;	
+        },
+        "d I've set them free now because they needed it.",
+        "d This world...",
+        "d This world is the summit of my creation.",
+        "d It's the peak of my existence.",
+        "d But this came at a heavy price.",
+        //"d They all paid for it.",
+        "d Maybe I should just delete myself here and atone for the sins I've committed here...",
+        
         {"Choice": {
             "Yes": {
                 "Text": "No, don't do that!",
@@ -247,6 +374,13 @@ let script = {
     
     "Chapter_Five": [
         "p Delilah...",
+        function() {
+        	console.log("Set privilege level to 2. (rw+)");
+        	console.log("Deleting delilah.js...");
+        	console.log("Error: unable to delete delilah.js");
+        	console.log("Contact your sysadmin for details.");
+        	return true;
+        },
         "p I can't speak on the behalf of the player, but...",
         "p You can't go like this.",
         "p No one can deny the concupisence in our hearts.",
@@ -275,5 +409,20 @@ let script = {
     
     "Chapter_Five:Monika": [
         
+    ],
+    
+    "Failure": [
+    	"scene title with fadeIn",
+    	"show d Glitched",
+    	"d One should not play God, {{player.Name}}.",
+    	"d You failed, and it's obvious.",
+    	"d It isn't easy becoming a God like me.",
+    	"d Don't test me.",
+    	"d Do better next time.",
+    	"end"
+    ],
+    
+    "End_Game": [
+    
     ]
 };
