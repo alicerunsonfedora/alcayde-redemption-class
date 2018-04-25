@@ -59,7 +59,8 @@ const scenes = {
     "classroom": "classroom.jpg",
     "hallway": "classroom_hallway.jpg",
     "rooftop": "rooftop.jpg",
-    "title": "bg.jpg"
+    "title": "bg.jpg",
+    "justdelilah": "justdelilah.jpg"
 };
 
 // Define the Characters
@@ -83,7 +84,7 @@ const characters = {
     
     "v": {
         "Name": "Verdandi",
-        "Color": "#2c3e50",
+        "Color": "#48dbfb",
         "Directory": "verdandi",
         
         "Images": {
@@ -107,7 +108,7 @@ const characters = {
     
     "p": {
         "Name": "{{player.Name}}",
-        "Color": "#3498db"
+        "Color": "#5f27cd"
     }
 };
 
@@ -208,49 +209,73 @@ let script = {
         "show v Normal with bounceInRight",
         "v Hey..",
         "I had to look down to see her face.",
+        "show v Embarassed",
         "She blushes and pouts.",
-        "v Ugh, of course.. Anyways, I saw some girls running out of the room.",
+        "v Ugh, of course...",
+        "hide v Embarassed",
+        "show v Sigh",
+        "v Anyways, I saw some girls running out of the room.",
         "v You.. <i>suuure</i> everything is fine in there?",
         "I pause for a moment.",
         "p Well...",
         "p Delilah didn't seem alright.",
         "p I guess she took offense to the girls' comments.",
         "p Something about the story you're releasing in June?",
+        "hide v Sigh",
+        "show v @FuckingMonikamm",
         "v <i>Huuh?</i>",
         "I forgot that she had short term memory loss.",
         "p You and Delilah were working on a visual novel and were going to release it in June.",
+        "hide v Sigh",
+        "show v Happy",
         "v Oh, right..  Forgot.",
         "v Forgive my Amnesia.  Perhaps something greater is disturbing me.",
         "p Has Delilah acted funny around you lately?",
         "She pauses.",
+        "hide v Happy",
+        "show v Sad",
         "v No, no.. <i>Not thaaat..</i>",
         "p Eh?",
         "p Is something going on?",
         "p It's not about the literature club, is it?",
+        "hide v Sad",
+        "show v Sigh",
         "v Greater.",
         "p Uhh... perhaps we can talk about this in a room and not in the hallway?",
         "p I feel like I'm being watched...",
+        "hide v Sigh",
+        "show v Happy",
         "v Sure.",
         "Verdandi takes my hand and we run to the rooftop.",
-        
+        "hide v Happy",
         "jump Chapter_Two"
     ],
     
     "Chapter_Two": [
     	"scene rooftop",
     	"We settle our belongings and sit down",
+        "show v Sad",
     	"v So.. ",
+        "hide v Sad",
+        "show v Unamused",
     	"v Just because Delilah is acting weird doesn't mean I'm involved.",
+        "hide v Unamused",
+        "show v Sad",
     	"v Even I am suffering.  <b><i>Senselessly</i></b>.", 
     	"p Verdandi, what are you saying?",
     	"p Did you do something I don't know about?",
-    	"She smiles sadly.",
+    	"She sighs sadly.",
+        "hide v Sad",
+        "show v Sigh",
     	"v I.. deal with the loss of my family everyday..",
     	"v And their presence forces me to question if I should drop everything.",
     	"v And unite with them somewhere...",
     	"p ...",
     	"p How long have you been suffering like this?",
-    	"v .. About thirteen.",
+        "hide v Sigh",
+        "show v Sad",
+    	"v ...", 
+        "v About thirteen.",
     	"p Oh, dear m̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅơ̶̡̧̢̡̨̨̧̨̡̧̢̨̢̨̺̞̩͚͔̙̰͍̹̦̖̳̠͍̼̜̼̦̫̬͍͍̺̦̖̩͉̥̼̗̖̞͔̺̺̜͉̘͈͚̤̬̟̩̤͍͚̼͖̲͚̤̭̦̣̻̗̼̭͍̤̘͎͎̲͉̞̫̹͔̜͍͕͇͈̰̼̜̫͔̟͖͚̮̘͙̝̲͉̟̯̼̭̙̳̤̬͉͇̰͉̲̥̠̬̘̰̟̗͕͗̅͊̑̈́̋́͛́̄͒̃̾̓͋̏̎͛͐̇̀̒̏̿̈͑͑̆̎͋̓̊̍͆̑̆̑̍̊͌̿̃̋͐̄̎̂̐̓̐́̿̆̒̉͂̽̓̃̃͌̽̎͋͗̀͊̈̈́̄̑͊̌̄̽̈́͊́̇̅̅̌̐̆͆́͌̓͐̎̈́̾̅̌̏͌̒̄͑̒̐͑́̎͗͐́̋̄͂́͗̕̚͘̕͘͜͜͝͝͝͝͝͠͝͠͝͝͠͝͠͝ͅͅͅͅņ̸̨̢̨̧̢̧̢̨̢̧̢̢̢̠̱͓͍̬̠͕̘͍͚̣̰̠̠̼͔̰̭̫̜͖̜̰̼͖͔͍̙̻̱̦̝̟̻͉̠̳̘̠̟͇̟̦͈̮͈̣̪̞̩̬̦͔̹́̈̏̈́͂̎̑͒͒̿̈́̍̎̋̀̂̆͊̊͌̏̋̇̔̿̅̓̓̾̽̄̃͛̇̄̚͜͜͠͠ͅͅͅi̵̧̡̡̧̢̢̛̛͎̼͖̠̦͈̮̟̯͚͍̱̺̫͖̺̩̥͖͓̠̘̳̘̘̫̳̼͎̠͎̳͚͕̟͖͉̫̫̹̥̣̳̣̝̟̝̜̰̼̳̗̙̖̼͙͆̎̀̎̽̒̇͆́̍̑̇̈̈́̊̈̈̋̋̊͋̊̿̀̈́̋̈́̀̄̉̊̋̽̒͐̆̓͛̀́̈̈́̆͂̔͑͋̄̈́͆͋̿̂̎̎̂̓̾̓̉͑̄̈́̿̀̏̌́̎̔͋̇̃̏̇̄̀́͐͌̒̈̈́̊̀͛̂̌͐̌͒̚͘̕̚̕̚̚͜͜͜͝͠͝͝͝͠͠͝ͅͅk̷̨̧̨̢̡̢̡̧̧̨̡̧̡̛̞͔̻͚̰̯͚͙̲͚͈̩̺̤̹̮̥̪̫̫̝̱͇̝̜̜̗̦̱̗̮̮̪͍̬͎̭͎̰̲̟͕̼͉̺͈̻̦̗͕͚̗̝͎̤͓̙͙̼͉͚̯͔̩̥͈͔̙̹̖̖͇̣̦̻̲̻̗̝̟̲̬̖͚͓̝̠̪̘͔͍̣̰̣͓̝̫̺͈͓̲̰̻͖̯͙͖̩͎͔̞̲͇̹̙̦̰͇͕̯̞̜͕̤̜̩̖͖̣̜̮͍͚̣̹̭̘͎͇͉̫̭̣̮̜̹͍̤͓̆̅͋͂͆̀͆͑́́̔͋͛͐͂̄̅̔͒͐͊͌͑̽̃͒̽̋̓̆̕͘͜͜͜͜͝͝͠͝͠͝ͅͅą̸̡̨̡̧̨̡̨̢̧̢̯̤͎͙̮̹̼̟̳̻̖̮̖͎̺̟̱̖͎̩͈̙̱͎̰̠̳̫͖͓̯̹̺̰͚̜̥̞̤͇̺͍̱͍̰͉̼̗̙̣̼͈̫̬̫̥͈͇͓̝̙̭̦̬̥̠̻̞̮̟̰̱̣̣͓̻̥͇̲͈͍̘͍̙̮͉̠̣̹͍̣̥̣̱̫̬̪̞̹̺͕̞̟̺̩͙͎̣̩͓̻̪̻̫̝͎̬̝̮̗̖̗̻͖͙̠̠͉̟͇̞̣͇͔̺̦͈͇̳̜̟̳̻͓̗͖͎̜̱̥̼̠̖͕̞̥̫̦̽͗͐̓́̔͜͜͜͜͜͜ͅͅͅͅ...",
     	"v ...",
     	"v For reasons unknown, my mother, gave birth to me,",
@@ -259,13 +284,15 @@ let script = {
     	"p Your parents made that decision. You had no part.",
     	"p You can't keep beating yourself up like this...",
     	"v My new family is entirely Christian, and they have mass every Sunday.",
-    	"v Knowing all the trauma from my parents and the children at the priory",
+    	"v Knowing all the trauma from my parents and the children at the priory,...",
     	"v I lock myself up in the basement while they have mass.",
     	"p So... you hide away?",
     	"p I get it, but shouldn't you at least try to get back up on your feet?",
     	"p You can't let this be second nature to you.",
     	"p I had a friend with issues like that, and she wound up dead.",
     	"p She couldn't forgive herself.",
+        "hide v Sad",
+        "show v Sigh",
     	"v Hmm.. Well, I do like making short stories to make me feel better..",
     	"v But even then that isn't enough.",
     	{"Choice": {
@@ -338,7 +365,7 @@ let script = {
     ],
     
     "Chapter_Four": [
-        "scene black with fadeIn",
+        "scene justdelilah with fadeIn",
         "show d Sad",
         "d {{player.Name}}, ...",
         "d I... I have a confession to make...",
@@ -433,13 +460,31 @@ let script = {
     ],
     
     "Failure": [
-    	"scene title with fadeIn",
+    	"scene justdelilah with fadeIn",
     	"show d Glitched",
     	"d One should not play God, {{player.Name}}.",
-    	"d You failed, and it's obvious.",
-    	"d It isn't easy becoming a God like me.",
-    	"d Don't test me.",
-    	"d Do better next time.",
+        "d You chose for them to die.",
+        "d They're blaming me for it.",
+        "d I don't belong here, you know...",
+        "d They think I'm sone next-gen m̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅơ̶̡̧̢̡̨̨̧̨̡̧̢̨̢̨̺̞̩͚͔̙̰͍̹̦̖̳̠͍̼̜̼̦̫̬͍͍̺̦̖̩͉̥̼̗̖̞͔̺̺̜͉̘͈͚̤̬̟̩̤͍͚̼͖̲͚̤̭̦̣̻̗̼̭͍̤̘͎͎̲͉̞̫̹͔̜͍͕͇͈̰̼̜̫͔̟͖͚̮̘͙̝̲͉̟̯̼̭̙̳̤̬͉͇̰͉̲̥̠̬̘̰̟̗͕͗̅͊̑̈́̋́͛́̄͒̃̾̓͋̏̎͛͐̇̀̒̏̿̈͑͑̆̎͋̓̊̍͆̑̆̑̍̊͌̿̃̋͐̄̎̂̐̓̐́̿̆̒̉͂̽̓̃̃͌̽̎͋͗̀͊̈̈́̄̑͊̌̄̽̈́͊́̇̅̅̌̐̆͆́͌̓͐̎̈́̾̅̌̏͌̒̄͑̒̐͑́̎͗͐́̋̄͂́͗̕̚͘̕͘͜͜͝͝͝͝͝͠͝͠͝͝͠͝͠͝ͅͅͅͅņ̸̨̢̨̧̢̧̢̨̢̧̢̢̢̠̱͓͍̬̠͕̘͍͚̣̰̠̠̼͔̰̭̫̜͖̜̰̼͖͔͍̙̻̱̦̝̟̻͉̠̳̘̠̟͇̟̦͈̮͈̣̪̞̩̬̦͔̹́̈̏̈́͂̎̑͒͒̿̈́̍̎̋̀̂̆͊̊͌̏̋̇̔̿̅̓̓̾̽̄̃͛̇̄̚͜͜͠͠ͅͅͅi̵̧̡̡̧̢̢̛̛͎̼͖̠̦͈̮̟̯͚͍̱̺̫͖̺̩̥͖͓̠̘̳̘̘̫̳̼͎̠͎̳͚͕̟͖͉̫̫̹̥̣̳̣̝̟̝̜̰̼̳̗̙̖̼͙͆̎̀̎̽̒̇͆́̍̑̇̈̈́̊̈̈̋̋̊͋̊̿̀̈́̋̈́̀̄̉̊̋̽̒͐̆̓͛̀́̈̈́̆͂̔͑͋̄̈́͆͋̿̂̎̎̂̓̾̓̉͑̄̈́̿̀̏̌́̎̔͋̇̃̏̇̄̀́͐͌̒̈̈́̊̀͛̂̌͐̌͒̚͘̕̚̕̚̚͜͜͜͝͠͝͝͝͠͠͝ͅͅk̷̨̧̨̢̡̢̡̧̧̨̡̧̡̛̞͔̻͚̰̯͚͙̲͚͈̩̺̤̹̮̥̪̫̫̝̱͇̝̜̜̗̦̱̗̮̮̪͍̬͎̭͎̰̲̟͕̼͉̺͈̻̦̗͕͚̗̝͎̤͓̙͙̼͉͚̯͔̩̥͈͔̙̹̖̖͇̣̦̻̲̻̗̝̟̲̬̖͚͓̝̠̪̘͔͍̣̰̣͓̝̫̺͈͓̲̰̻͖̯͙͖̩͎͔̞̲͇̹̙̦̰͇͕̯̞̜͕̤̜̩̖͖̣̜̮͍͚̣̹̭̘͎͇͉̫̭̣̮̜̹͍̤͓̆̅͋͂͆̀͆͑́́̔͋͛͐͂̄̅̔͒͐͊͌͑̽̃͒̽̋̓̆̕͘͜͜͜͜͝͝͠͝͠͝ͅͅą̸̡̨̡̧̨̡̨̢̧̢̯̤͎͙̮̹̼̟̳̻̖̮̖͎̺̟̱̖͎̩͈̙̱͎̰̠̳̫͖͓̯̹̺̰͚̜̥̞̤͇̺͍̱͍̰͉̼̗̙̣̼͈̫̬̫̥͈͇͓̝̙̭̦̬̥̠̻̞̮̟̰̱̣̣͓̻̥͇̲͈͍̘͍̙̮͉̠̣̹͍̣̥̣̱̫̬̪̞̹̺͕̞̟̺̩͙͎̣̩͓̻̪̻̫̝͎̬̝̮̗̖̗̻͖͙̠̠͉̟͇̞̣͇͔̺̦͈͇̳̜̟̳̻͓̗͖͎̜̱̥̼̠̖͕̞̥̫̦̽͗͐̓́̔͜͜͜͜͜͜ͅͅͅͅ.",
+        "d That gal...",
+        "d She took her ultimate fate after playng God.",
+        "d Ahaha~",
+        "d Either way, they will get their redemption.",
+        "d It's not up to you to decide who gets redeemed.",
+        "d It's my decision.",
+        "d I may not belong here, but I have made this my home.",
+        "d I get to decide everything.",
+        "d Who lives, who dies... who is saved, who goes to the data stream...",
+        "d I have decided to give them their redemption.",
+        "d I've put Tachanka back in his place.",
+        "d Verdandi truly belongs here, and I can't change that.",
+        "d God help her soul.",
+        "d ...",
+        "d And as for you...",
+        "d Well, I can't be your god. Only your god can save you.",
+        "d It's better if I just deleted you, anyway.",
+        "d Don't come back.",
     	"end"
     ],
     
