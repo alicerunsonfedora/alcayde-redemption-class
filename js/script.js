@@ -83,7 +83,14 @@ const characters = {
     
     "v": {
         "Name": "Verdandi",
-        "Color": "#2c3e50"
+        "Color": "#2c3e50",
+        "Directory": "verdandi",
+        
+        "Images": {
+        	"Normal": "VerdandiNormal.png",
+        	"Happy": "VerdandiHappy.png",
+        	"Surprised": "VerdandiSurprise.png"
+        }
     },
     
     "t": {
@@ -191,6 +198,7 @@ let script = {
         //TODO: Start Verdandi's lines here
         "v {{player.Name}}!",
         "Verdandi runs towards me.",
+        "show v Normal with bounceInRight",
         "v Hey..",
         "I had to look down to see her face.",
         "She blushes and pouts.",
@@ -281,7 +289,7 @@ let script = {
     	"p So, what happened to you yesterday?",
     	"t Um..... was sleeping?",
     	"I know he's hiding <i>something</i>, but I'm sure he has a reason for it.",
-    	"p ..."
+    	"p ...",
     	"p OK?",
     	"p Anyway, I tried calling Delilah, but she did not answer, and since you've known her longer than we have each other and live next to each other, that you would know?",
     	"t ...",
@@ -296,12 +304,12 @@ let script = {
     	"Tachanka smiles. I always know when he's smiling.", 
     	"The one thing I always questioned was why he was always so protective of Delilah.", 
     	"<i>Why he would get all chummy when something weird happened with her?</i>",
-    	"Delilah enters."
+    	"Delilah enters.",
 		"d h..i...hi...",
 		"p oh hi Delilah.",    	
 		"t hello Delilah.",
 		"with a sweat kind voice",
-		"d hi Tackanka."
+		"d hi Tackanka.",
 		"p so Delilah are you free after School?",
 		"d o..oh um I needed to talk to you anyway too so ya.",
 		"She had a fake smile but I was not bothered and smiled back and said see you after school.",
@@ -309,7 +317,8 @@ let script = {
 		"School started and we each went about our day although me and Tachanka were in the same class, yet Delilah was in the class next to us.",
 		"School was almost over and I was pondering wether to ask her where she was Yesterday, but I was still fighting with myself",
 		"Maybe I should ask now while I can?",
-		"maybe I should not do it?"
+		"maybe I should not do it?",
+		"jump Chapter_Four"
 
     	
     
