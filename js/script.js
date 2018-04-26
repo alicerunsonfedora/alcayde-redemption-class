@@ -158,7 +158,7 @@ const characters = {
             "Normal": "normal.png",
             "Angry": "angry.png",
             "Troubled": "troubled.png",
-            "Happy": "Happy.png",
+            "Happy": "happy.png",
             "Facade": "fauxsmile.png",
             "Glitched": "TACHANKAPLAYWITHME.png"
         }
