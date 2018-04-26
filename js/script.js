@@ -129,18 +129,18 @@ const characters = {
         "Directory": "verdandi",
         
         "Images": {
-        	"Normal": "VerdandiNormal.png",
-        	"Happy": "VerdandiHappy.png",
-        	"Surprised": "VerdandiSurprise.png",
-        	"Flustered": "VerdandiAngry1.png",
-        	"Embarassed": "VerdandiAngry2(B).png",
-        	"Unamused": "VerdandiAngry3.png",
-        	"Sad": "VerdandiSad1.png",
-        	"Sigh": "VerdandiSad2.png",
-        	"@FuckingMonikamm": "VERDANDIWHAT.png",
-        	"Glitched": "VERDANDIPLAYWITHME.png",
-            "Crying": "VerdandiSadCry.png",
-            "Joyful": "VerdandiSappy.png"
+        	"Normal": "Verdandi2Normal.png",
+        	"Happy": "Verdandi2Happy.png",
+        	"Surprised": "Verdandi2SUPERANGRYBLUSH.png",
+        	"Flustered": "VerdandiAngry.png",
+        	"Embarassed": "Verdandi2Embarassed.png",
+        	"Unamused": "VerdandiAngryTriggered.png",
+        	"Sad": "VerdandiSad.png",
+        	"Sigh": "VerdandiSigh.png",
+        	"@FuckingMonikamm": "VerdandiWhat.png",
+        	"Glitched": "HohohohmanIsavedthisforlast.png",
+            "Crying": "VerdandiCry.png",
+            "Joyful": "VerdandiBlush.png"
         }
     },
     
