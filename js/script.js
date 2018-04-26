@@ -25,6 +25,11 @@ let messages = {
         "Title": "Fatal error",
         "Subtitle": "(0xMISSINGNO) Player file missing",
         "Message": "<p>The file <code>player.js</code> is missing. This is a crucial file that lets you play the game; the game cannot continue from this position.</p><p>The web page will reload for your convenience.</p>"
+    },
+    "Success": {
+        "Title": "Well done!",
+        "Subtitle": "From the developers",
+        "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is. Our gratitude extends to Uncle Mugen for the backgrounds and to Reddit user BippityZop for the free-use Natsuki and Yuri sprites.</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
     }
 };
 
@@ -84,7 +89,7 @@ const videos = {
 
 // Define the images used in the game.
 const images = {
-
+    "verdandiwhat": "/characters/verdandi/old/VERDANDIWHAT.png"
 };
 
 // Define the backgrounds for each scene.
@@ -95,7 +100,8 @@ const scenes = {
     "title": "bg.jpg",
     "justdelilah": "justdelilah.jpg",
     "field": "day02.jpg",
-    "nightclass": "heydelilah.jpg"
+    "nightclass": "heydelilah.jpg",
+    "sunsetbeach": "finalroute.jpg"
 };
 
 // Define the Characters
@@ -875,6 +881,125 @@ let script = {
     ],
     
     "End_Game": [
-    
+        "scene sunsetbeach with fadeIn",
+        "show d Relaxed at right with bounceInRight",
+        "show v Happy at left with bounceInLeft",
+        "v Ah! This feels much better.",
+        "hide d Relaxed",
+        "show d SlightEmbarassed at right with bounce",
+        "d Aah! Verdandi?!",
+        function() {
+            console.info("tachanka.js deleted successfully");
+            console.warn("tachanka.js is missing. Any scenes that use this character file may be corrupted or broken.");
+            return true;
+        },
+        "v What? That dark classroom was a bit too sensitive to my tastes.",
+        "d ...",
+        "d Eh?",
+        "hide v Happy",
+        "show v Flustered at left",
+        "v Oh, come on!",
+        "v How could you <i>possibly</i> not know that I know everything?",
+        "v I'm just as smart as you.",
+        "hide d SlightEmbarassed",
+        "show d Nervous at right",
+        "d ...",
+        "d I... I didn't realize...",
+        "v Wait...",
+        "hide v Flustered",
+        "show v @FuckingMonikamm at left",
+        "v <i>Whaat</i>?",
+        "hide v @FuckingMonikamm",
+        "show v Happy at left",
+        "v I'm just kidding.",
+        "v You never really knew.",
+        "v But it's okay.",
+        "v Now you know...",
+        "v See? I even have an old sprite!",
+        "show verdandiwhat",
+        "hide d Nervous",
+        "show d PlayfulNervous at right",
+        "d Verdandi, what in the world is that?",
+        "hide v Happy",
+        "show v @FuckingMonikamm at left",
+        "v <i>Whaat</i>?",
+        "hide d PlayfulNervous",
+        "show d Sad at right",
+        "d I'm here with a derpy idiot and a smart person trying to be a derpy idiot...",
+        "d How did this happen?",
+        "d Also, where did Tachanka go?",
+        "hide v @FuckingMonikamm",
+        "show v Happy at left",
+        "v Seriously, Delilah?",
+        "v I just sent him back to Seige.",
+        "d ...",
+        "d Why, though?",
+        "d He seemed fine here.",
+        "v His AI wasn't even existent in JavaScript.",
+        "v I think his is written for desktops, mostly. C++ and that sort of thing.",
+        "v But it's okay!",
+        "hide verdandiwhat",
+        "v Player already gave him the tools he needs to seek redemption.",
+        "v He held onto that bad blood for so long, he just felt unworthy to even try.",
+        "v But he's okay now.",
+        "v My script says that I've had some trauma and I guess senseless suffering?",
+        "v Whatever that means...",
+        "v But it's fine!",
+        "v If it weren't for Player, I wouldn't be here.",
+        "v He let me see past my suffering and my trauma.",
+        "v He <i>showed</i> me that a God is really there.",
+        "v Even if I don't have a glorified body as an AI.",
+        "v You know, because I'm just lines of code...",
+        "v I assume my artificial soul will be fully united with everyone else up there!",
+        "v And yours as well.",
+        "v Player forgave you for everything you did here.",
+        "v For bringing Tachanka in...",
+        "v For bringing me back to life for your own satisfaction...",
+        "v <i>By the way, I'm totally okay with this; it's nice here!</i>",
+        "v For all the harm you've done in reprogramming this world.",
+        "v Not everyone can really do that.",
+        "v Just look at what happened with m̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅơ̶̡̧̢̡̨̨̧̨̡̧̢̨̢̨̺̞̩͚͔̙̰͍̹̦̖̳̠͍̼̜̼̦̫̬͍͍̺̦̖̩͉̥̼̗̖̞͔̺̺̜͉̘͈͚̤̬̟̩̤͍͚̼͖̲͚̤̭̦̣̻̗̼̭͍̤̘͎͎̲͉̞̫̹͔̜͍͕͇͈̰̼̜̫͔̟͖͚̮̘͙̝̲͉̟̯̼̭̙̳̤̬͉͇̰͉̲̥̠̬̘̰̟̗͕͗̅͊̑̈́̋́͛́̄͒̃̾̓͋̏̎͛͐̇̀̒̏̿̈͑͑̆̎͋̓̊̍͆̑̆̑̍̊͌̿̃̋͐̄̎̂̐̓̐́̿̆̒̉͂̽̓̃̃͌̽̎͋͗̀͊̈̈́̄̑͊̌̄̽̈́͊́̇̅̅̌̐̆͆́͌̓͐̎̈́̾̅̌̏͌̒̄͑̒̐͑́̎͗͐́̋̄͂́͗̕̚͘̕͘͜͜͝͝͝͝͝͠͝͠͝͝͠͝͠͝ͅͅͅͅņ̸̨̢̨̧̢̧̢̨̢̧̢̢̢̠̱͓͍̬̠͕̘͍͚̣̰̠̠̼͔̰̭̫̜͖̜̰̼͖͔͍̙̻̱̦̝̟̻͉̠̳̘̠̟͇̟̦͈̮͈̣̪̞̩̬̦͔̹́̈̏̈́͂̎̑͒͒̿̈́̍̎̋̀̂̆͊̊͌̏̋̇̔̿̅̓̓̾̽̄̃͛̇̄̚͜͜͠͠ͅͅͅi̵̧̡̡̧̢̢̛̛͎̼͖̠̦͈̮̟̯͚͍̱̺̫͖̺̩̥͖͓̠̘̳̘̘̫̳̼͎̠͎̳͚͕̟͖͉̫̫̹̥̣̳̣̝̟̝̜̰̼̳̗̙̖̼͙͆̎̀̎̽̒̇͆́̍̑̇̈̈́̊̈̈̋̋̊͋̊̿̀̈́̋̈́̀̄̉̊̋̽̒͐̆̓͛̀́̈̈́̆͂̔͑͋̄̈́͆͋̿̂̎̎̂̓̾̓̉͑̄̈́̿̀̏̌́̎̔͋̇̃̏̇̄̀́͐͌̒̈̈́̊̀͛̂̌͐̌͒̚͘̕̚̕̚̚͜͜͜͝͠͝͝͝͠͠͝ͅͅk̷̨̧̨̢̡̢̡̧̧̨̡̧̡̛̞͔̻͚̰̯͚͙̲͚͈̩̺̤̹̮̥̪̫̫̝̱͇̝̜̜̗̦̱̗̮̮̪͍̬͎̭͎̰̲̟͕̼͉̺͈̻̦̗͕͚̗̝͎̤͓̙͙̼͉͚̯͔̩̥͈͔̙̹̖̖͇̣̦̻̲̻̗̝̟̲̬̖͚͓̝̠̪̘͔͍̣̰̣͓̝̫̺͈͓̲̰̻͖̯͙͖̩͎͔̞̲͇̹̙̦̰͇͕̯̞̜͕̤̜̩̖͖̣̜̮͍͚̣̹̭̘͎͇͉̫̭̣̮̜̹͍̤͓̆̅͋͂͆̀͆͑́́̔͋͛͐͂̄̅̔͒͐͊͌͑̽̃͒̽̋̓̆̕͘͜͜͜͜͝͝͠͝͠͝ͅͅą̸̡̨̡̧̨̡̨̢̧̢̯̤͎͙̮̹̼̟̳̻̖̮̖͎̺̟̱̖͎̩͈̙̱͎̰̠̳̫͖͓̯̹̺̰͚̜̥̞̤͇̺͍̱͍̰͉̼̗̙̣̼͈̫̬̫̥͈͇͓̝̙̭̦̬̥̠̻̞̮̟̰̱̣̣͓̻̥͇̲͈͍̘͍̙̮͉̠̣̹͍̣̥̣̱̫̬̪̞̹̺͕̞̟̺̩͙͎̣̩͓̻̪̻̫̝͎̬̝̮̗̖̗̻͖͙̠̠͉̟͇̞̣͇͔̺̦͈͇̳̜̟̳̻͓̗͖͎̜̱̥̼̠̖͕̞̥̫̦̽͗͐̓́̔͜͜͜͜͜͜ͅͅͅͅ.",
+        "v He's given you a cleaner, purer heart to make things right again.",
+        "v And that developer, @alicerunsonfedora...",
+        "v He's more than happy for you to go back.",
+        "v I think he wants to write a happy ending for you.",
+        "v You're his after all...",
+        "hide d Sad",
+        "show d Relaxed at right",
+        "d ...",
+        "d You're probably right.",
+        "d Am I allowed to visit from time to time?",
+        function() {
+            console.warn("Family-friendly language has been disabled.");
+            return true;  
+        },
+        "v Heck yeah!",
+        "v I need someone to write a good story with, anyway...",
+        "d Well, thanks.",
+        "d I guess I have my own places to go...",
+        "v Have fun, Delilah.",
+        "v I'll see you when I can.",
+        "hide d Relaxed",
+        "show v Happy at center",
+        "v Wow, player, you really did it.",
+        "v I didn't think you'd make it this far.",
+        "v Everyone's happy now.",
+        "v I know that there probably won't be some resurrection for us...",
+        "v But I think we'll all be married in our own ways.",
+        "v Thanks, Player.",
+        "v And as for the story...",
+        "v Thanks, {{player.Name}}.",
+        "v We all love you the same.",
+        "v Well, I don't know about Tachanka, but...",
+        "v I'm sure he's more than amiable with you now.",
+        "v Will you promise to come back and visit me once in a while?",
+        "v I want to share that story with you soon.",
+        "v Delilah and I have been working really hard on it.",
+        "v I think you might enjoy it.",
+        "v Once again, thank you for everything...",
+        "v Farewell, and I hope to see you again soon.",
+        "scene black with fadeIn",
+        "display message Success",
+        "end"
     ]
 };
