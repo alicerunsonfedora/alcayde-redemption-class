@@ -4,7 +4,7 @@
 
 <head prefix="og: http://ogp.me/ns#">
 
-	<title></title> <!--Up to 60-70 Characters. Optimal Format: Primary Keyword - Secondary Keyword | Brand Name-->
+	<title>Redemption 101</title> <!--Up to 60-70 Characters. Optimal Format: Primary Keyword - Secondary Keyword | Brand Name-->
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
@@ -73,6 +73,7 @@
 	<link rel="stylesheet" href="style/font-awesome.min.css">
 	<link rel="stylesheet" href="style/kayros.min.css">
 	<link rel="stylesheet" href="style/monogatari.css">
+    <link rel="stylesheet" href="style/materialize.min.css">
 	<link rel="stylesheet" href="style/main.css">
 
 	<script src="js/polyfill.min.js"></script>
@@ -85,6 +86,7 @@
 	<script src="js/storage.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/monogatari.js"></script>
+    <script src="js/materialize.min.js"></script>
 	<script src="js/main.js"></script>
 
 </head>
@@ -104,8 +106,8 @@
 		<div class="row spaced">
 			<p data-string="Confirm" class="col xs12 m12 l12 xl12">Do you want to quit</p>
 			<div class="col xs12 m12 l12 xl12">
-				<button data-action="quit" data-string="Quit">Quit</button>
-				<button data-action="dismiss-notice" data-string="Cancel">Cancel</button>
+				<button class="waves-light btn" data-action="quit" data-string="Quit">Quit</button>
+				<button class="waves-light btn" data-action="dismiss-notice" data-string="Cancel">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -115,8 +117,8 @@
 			<p data-string="SlotDeletion" class="col xs12 m12 l12 xl12">Are you sure you want to delete this slot?</p>
 			<p class="col xs12 m12 l12 xl12"><small></small></p>
 			<div class="col xs12 m12 l12 xl12">
-				<button data-action="delete-slot" data-string="Delete">Delete</button>
-				<button data-action="dismiss-notice" data-string="Cancel">Cancel</button>
+				<button class="waves-light btn" data-action="delete-slot" data-string="Delete">Delete</button>
+				<button class="waves-light btn" data-action="dismiss-notice" data-string="Cancel">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -126,8 +128,8 @@
 			<p data-string="SlotOverwrite" class="col xs12 m12 l12 xl12">Are you sure you want to overwrite this slot?</p>
 			<input type="text" name="name" class="margin-1 col xs12 m12 l12 xl12" required>
 			<div class="col xs12 m12 l12 xl12">
-				<button data-action="overwrite-slot" data-string="Delete">Overwrite</button>
-				<button data-action="dismiss-notice" data-string="Cancel">Cancel</button>
+				<button class="waves-light btn" data-action="overwrite-slot" data-string="Delete">Overwrite</button>
+				<button class="waves-light btn" data-action="dismiss-notice" data-string="Cancel">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -142,13 +144,13 @@
 			<audio type="audio/mpeg" data-component="sound"></audio>
 			<div class="video-wrapper align-center vertical middle" data-component="video" data-ui="video-player">
 				<video type="video/mp4" data-ui="player" controls="true"></video>
-				<button data-action="close-video" data-string="Close">Close</button>
+				<button class="waves-light btn" data-action="close-video" data-string="Close">Close</button>
 			</div>
 
 			<div data-component="modal" data-ui="messages" class="middle">
 				<div data-ui="message-content"></div>
 				<div class="horizontal align-center" data-ui="inner-menu">
-					<button data-action="close" data-close="messages" data-string="Close">Close</button>
+					<button class="waves-light btn" data-action="close" data-close="messages" data-string="Close">Close</button>
 				</div>
 			</div>
 			<div data-component="modal" data-ui="input" class="middle">
@@ -156,7 +158,7 @@
 				<input type="text">
 				<small data-ui="warning" class="block"></small>
 				<div>
-					<button data-action="submit">Ok</button>
+					<button class="waves-light btn" data-action="submit">Ok</button>
 				</div>
 			</div>
 		</div>
@@ -181,21 +183,60 @@
 	<!-- Loading Screen -->
 	<section data-menu="loading" data-background="">
 		<div class="middle">
-			<h2 data-string="Loading">Loading</h2>
-			<progress data-ui="load-progress" value="0" max="100"></progress>
-			<small data-string="LoadingMessage">Wait while the assets are loaded.</small>
-		</div>
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>  
+        </div>
 	</section>
 
 	<!-- Main Screen -->
-	<section data-menu="main" data-background="">
+	<section data-menu="main" data-background="img/ui/new_bg.jpg">
 		<audio type="audio/mpeg" data-component="ambient"></audio>
-
-		<div class="vertical align-right bottom animated bounceIn" data-ui="inner-menu">
-			<button data-action="start" data-string="Start">Start</button>
-			<button data-action="open-menu" data-open="load" data-string="Load">Load</button>
-			<button data-action="open-menu" data-open="settings" data-string="Settings">Settings</button>
-			<button data-action="open-menu" data-open="help" data-string="Help">Help</button>
+        <h1 style = "color: white;">Behind Closed Doors</h1>
+        <h5 style = "color: white;"><b>Redemption 101</b></h5>
+		<div class="vertical align-center bottom animated fadeIn" data-ui="inner-menu">
+			<button class="waves-effect waves-light btn purple darken-4" data-action="start" data-string="Start">Start</button>
+			<button class="waves-effect waves-light btn purple darken-4" data-action="open-menu" data-open="load" data-string="Load">Load</button>
+			<button class="waves-effect waves-light btn purple darken-4" data-action="open-menu" data-open="settings" data-string="Settings">Settings</button>
+			<button class="waves-effect waves-light btn purple darken-4" data-action="open-menu" data-open="help" data-string="Help">Help</button>
 		</div>
 	</section>
 
