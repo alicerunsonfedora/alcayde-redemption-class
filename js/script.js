@@ -16,26 +16,37 @@
 
 // Define the messages used in the game.
 let messages = {
+    //Changelog Dialog
     "Changelog": {
         "Title": "What's New",
         "Subtitle": "The 'Material' Update",
-        "Message": "<ul><li>New user interface! Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li></ul>"
+        "Message": "<blockquote><ul><li><b>New user interface!</b> Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li><li><b>New content!</b> More of the story has been added for your benefit.</li></ul></blockquote>"
     },
-    
+
+    //'Error' Messages
     "ErrorFailure": {
         "Title": "Error",
-        "Subtitle": "(0xPERM_DENY) Permission denied",
+        "Subtitle": "(0x005045524d5f44454e59) Permission denied",
         "Message": "The administrator has not given you access to this scene or route. The system will automatically present a new scene for you within your jurisdiction of gameplay."
     },
     "ErrorPlayerDeleted": {
         "Title": "Fatal error",
-        "Subtitle": "(0xMISSINGNO) Player file missing",
+        "Subtitle": "(0x004d495353494e474e4f) Player file missing",
         "Message": "<p>The file <code>player.js</code> is missing. This is a crucial file that lets you play the game; the game cannot continue from this position.</p><p>The web page will reload for your convenience.</p>"
     },
+
+    //Success Message
     "Success": {
         "Title": "Well done!",
         "Subtitle": "From the developers",
         "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is. Our gratitude extends to Uncle Mugen for the backgrounds and to Reddit user BippityZop for the free-use Natsuki and Yuri sprites.</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
+    },
+
+    //In-game messages
+    "DelilahFirst": {
+      "Title": "Want to grab breakfast?",
+      "Subtitle": "From: Delilah",
+      "Message": "<p>Hey,</p><p>It feels like a beautiful morning today! I'd love it if we could spend the morning with breakfast together before school starts. It's on me this time, ahaha~!</p><p> - Delilah</p>"
     }
 };
 
@@ -95,7 +106,8 @@ const videos = {
 
 // Define the images used in the game.
 const images = {
-    "verdandiwhat": "/characters/verdandi/old/VERDANDIWHAT.png"
+    "verdandiwhat": "/characters/verdandi/old/VERDANDIWHAT.png",
+    "tachanka_dab": "ui/tachanka_dab.png"
 };
 
 // Define the backgrounds for each scene.
@@ -107,7 +119,8 @@ const scenes = {
     "justdelilah": "justdelilah.jpg",
     "field": "day02.jpg",
     "nightclass": "heydelilah.jpg",
-    "sunsetbeach": "finalroute.jpg"
+    "sunsetbeach": "finalroute.jpg",
+    "room_early_morning": "room_dawn_light_off.jpg"
 };
 
 // Define the Characters
@@ -116,7 +129,7 @@ const characters = {
         "Name": "Delilah",
         "Color": "#9b59b6",
         "Directory": "delilah",
-        
+
         "Images": {
             "Happy": "happy.png",
             "Sad": "sad.png",
@@ -124,7 +137,7 @@ const characters = {
             "Libitina": "third_eye.png",
             "Upset": "upset.png",
             "PlayfulNervous": "nervous.png",
-            "Nervous": "seriously_nervous.png", 
+            "Nervous": "seriously_nervous.png",
             "Glitched": "play_with_me.png",
             "Tears": "tearing.png",
             "Cry": "cry.png",
@@ -134,12 +147,12 @@ const characters = {
             "Monika": "wtf_monika.png"
             }
     },
-    
+
     "v": {
         "Name": "Verdandi",
         "Color": "#48dbfb",
         "Directory": "verdandi",
-        
+
         "Images": {
         	"Normal": "Verdandi2Normal.png",
         	"Happy": "Verdandi2Happy.png",
@@ -155,7 +168,7 @@ const characters = {
             "Joyful": "VerdandiBlush.png"
         }
     },
-    
+
     "t": {
         "Name": "Tachanka",
         "Color": "#2ecc71",
@@ -169,26 +182,31 @@ const characters = {
             "Glitched": "TACHANKAPLAYWITHME.png"
         }
     },
-    
+
     "tv": {
         "Name": "Delilah + Tachanka",
         "Color": "#2ecc75"
     },
-    
+
     "p": {
         "Name": "{{player.Name}}",
         "Color": "#5f27cd"
+    },
+
+    "mserve": {
+      "Name": "<i class = 'material-icons'>email</i>&nbsp;Messages",
+      "Color": "#b71c1c"
     }
 };
 
 let script = {
 	// The game starts here.
 	"Start": [
-        "scene sunsetbeach",
+        "scene sunsetbeach with fadeIn",
 		"display message Changelog",
 		{
 			"Input": {
-				"Text": "Enter your name:",
+				"Text": "Enter the name you'd like to use for this game.",
 				"Validation": function (input) {
 					return input.trim().length > 0;
 				},
@@ -196,15 +214,24 @@ let script = {
 					storage.player.Name = input;
 					return true;
 				},
-				"Warning": "Name field cannot be blank."
+				"Warning": "Error: the name field cannot be blank."
 			}
 		},
         "jump Intro"
-        
-        
+
+
 	],
     "Intro": [
         "scene black with fadeIn",
+
+        {"Conditional": {
+          "Condition": function(){
+            return storage.player.Name == "Big Daddy";
+          },
+          "True": "show tachanka_dab",
+          "False": "wait 2000"
+        }},
+
         "Nothing in life is completely perfect.",
         "We're all bound to making mistakes. It's a part of us.",
         "Some of us take a regular detour.",
@@ -213,9 +240,22 @@ let script = {
         "All that really matters is if we shake off the dust and put ourselves back on track.",
         "<i>Redeeming</i> ourselves...",
         "<i>Why can't I get my head around it?</i>",
+        "Perhaps I'm just overthinking this a bit...",
+        "I open my eyes.",
+        "hide tachanka_dab",
+
+        "scene room_early_morning with fadeIn",
+        "As usual, five o'clock in the morning never looked bleaker here.",
+        "I qukcly glance around my room, soaking in the lack of a proper sun.",
+        "I feel somehow like as if I am radiating in terrible realities.",
+        "mserve Incoming message from Delilah. Open now?",
+        "I glance at my phone, then at the window.",
+        "What could that girl want from me?",
+        "display message DelilahFirst",
+
         "jump Chapter_One"
     ],
-    
+
     "Chapter_One": [
         "scene classroom with fadeIn",
         "show d Sad with bounceInRight",
@@ -264,7 +304,7 @@ let script = {
         "d You should leave, {{player.Name}}...",
         "d Before I hurt you, too...",
         "I slowly walk out the door and gently close it.",
-        
+
         "scene hallway with fadeInLeft",
         "What did I just witness?",
         "Is she hiding something from me?",
@@ -272,7 +312,7 @@ let script = {
         "I know she doesn't take rudeness too well, but that...",
         "That was out of the ordinary.",
         "It was like she was a completely different person.",
-        
+
         //TODO: Start Verdandi's lines here
         "v {{player.Name}}!",
         "Verdandi runs towards me.",
@@ -320,7 +360,7 @@ let script = {
         "hide v Happy",
         "jump Chapter_Two"
     ],
-    
+
     "Chapter_Two": [
     	"scene rooftop",
     	"We settle our belongings and sit down",
@@ -331,7 +371,7 @@ let script = {
     	"v Just because Delilah is acting weird doesn't mean I'm involved.",
         "hide v Unamused",
         "show v Sad",
-    	"v Even I am suffering.  <b><i>Senselessly</i></b>.", 
+    	"v Even I am suffering.  <b><i>Senselessly</i></b>.",
     	"p Verdandi, what are you saying?",
     	"p Did you do something I don't know about?",
     	"She sighs sadly.",
@@ -344,7 +384,7 @@ let script = {
     	"p How long have you been suffering like this?",
         "hide v Sigh",
         "show v Sad",
-    	"v ...", 
+    	"v ...",
         "v About thirteen.",
     	"p Oh, dear m̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅơ̶̡̧̢̡̨̨̧̨̡̧̢̨̢̨̺̞̩͚͔̙̰͍̹̦̖̳̠͍̼̜̼̦̫̬͍͍̺̦̖̩͉̥̼̗̖̞͔̺̺̜͉̘͈͚̤̬̟̩̤͍͚̼͖̲͚̤̭̦̣̻̗̼̭͍̤̘͎͎̲͉̞̫̹͔̜͍͕͇͈̰̼̜̫͔̟͖͚̮̘͙̝̲͉̟̯̼̭̙̳̤̬͉͇̰͉̲̥̠̬̘̰̟̗͕͗̅͊̑̈́̋́͛́̄͒̃̾̓͋̏̎͛͐̇̀̒̏̿̈͑͑̆̎͋̓̊̍͆̑̆̑̍̊͌̿̃̋͐̄̎̂̐̓̐́̿̆̒̉͂̽̓̃̃͌̽̎͋͗̀͊̈̈́̄̑͊̌̄̽̈́͊́̇̅̅̌̐̆͆́͌̓͐̎̈́̾̅̌̏͌̒̄͑̒̐͑́̎͗͐́̋̄͂́͗̕̚͘̕͘͜͜͝͝͝͝͝͠͝͠͝͝͠͝͠͝ͅͅͅͅņ̸̨̢̨̧̢̧̢̨̢̧̢̢̢̠̱͓͍̬̠͕̘͍͚̣̰̠̠̼͔̰̭̫̜͖̜̰̼͖͔͍̙̻̱̦̝̟̻͉̠̳̘̠̟͇̟̦͈̮͈̣̪̞̩̬̦͔̹́̈̏̈́͂̎̑͒͒̿̈́̍̎̋̀̂̆͊̊͌̏̋̇̔̿̅̓̓̾̽̄̃͛̇̄̚͜͜͠͠ͅͅͅi̵̧̡̡̧̢̢̛̛͎̼͖̠̦͈̮̟̯͚͍̱̺̫͖̺̩̥͖͓̠̘̳̘̘̫̳̼͎̠͎̳͚͕̟͖͉̫̫̹̥̣̳̣̝̟̝̜̰̼̳̗̙̖̼͙͆̎̀̎̽̒̇͆́̍̑̇̈̈́̊̈̈̋̋̊͋̊̿̀̈́̋̈́̀̄̉̊̋̽̒͐̆̓͛̀́̈̈́̆͂̔͑͋̄̈́͆͋̿̂̎̎̂̓̾̓̉͑̄̈́̿̀̏̌́̎̔͋̇̃̏̇̄̀́͐͌̒̈̈́̊̀͛̂̌͐̌͒̚͘̕̚̕̚̚͜͜͜͝͠͝͝͝͠͠͝ͅͅk̷̨̧̨̢̡̢̡̧̧̨̡̧̡̛̞͔̻͚̰̯͚͙̲͚͈̩̺̤̹̮̥̪̫̫̝̱͇̝̜̜̗̦̱̗̮̮̪͍̬͎̭͎̰̲̟͕̼͉̺͈̻̦̗͕͚̗̝͎̤͓̙͙̼͉͚̯͔̩̥͈͔̙̹̖̖͇̣̦̻̲̻̗̝̟̲̬̖͚͓̝̠̪̘͔͍̣̰̣͓̝̫̺͈͓̲̰̻͖̯͙͖̩͎͔̞̲͇̹̙̦̰͇͕̯̞̜͕̤̜̩̖͖̣̜̮͍͚̣̹̭̘͎͇͉̫̭̣̮̜̹͍̤͓̆̅͋͂͆̀͆͑́́̔͋͛͐͂̄̅̔͒͐͊͌͑̽̃͒̽̋̓̆̕͘͜͜͜͜͝͝͠͝͠͝ͅͅą̸̡̨̡̧̨̡̨̢̧̢̯̤͎͙̮̹̼̟̳̻̖̮̖͎̺̟̱̖͎̩͈̙̱͎̰̠̳̫͖͓̯̹̺̰͚̜̥̞̤͇̺͍̱͍̰͉̼̗̙̣̼͈̫̬̫̥͈͇͓̝̙̭̦̬̥̠̻̞̮̟̰̱̣̣͓̻̥͇̲͈͍̘͍̙̮͉̠̣̹͍̣̥̣̱̫̬̪̞̹̺͕̞̟̺̩͙͎̣̩͓̻̪̻̫̝͎̬̝̮̗̖̗̻͖͙̠̠͉̟͇̞̣͇͔̺̦͈͇̳̜̟̳̻͓̗͖͎̜̱̥̼̠̖͕̞̥̫̦̽͗͐̓́̔͜͜͜͜͜͜ͅͅͅͅ...",
     	"v ...",
@@ -376,7 +416,7 @@ let script = {
             }
         }}
     ],
-    
+
     "Chapter_Two:Yes": [
         "p Let God help you.",
         "hide v Sigh",
@@ -410,7 +450,7 @@ let script = {
         "I follow suit with her, returning to the field for gym.",
         "jump Chapter_Three"
     ],
-    
+
     "Chapter_Two:Monika": [
     	"show v @FuckingMonikamm",
     	"v Oh no...",
@@ -421,7 +461,7 @@ let script = {
         "display message ErrorFailure",
     	"jump Failure"
     ],
-    
+
     "Chapter_Three": [
         "scene field with fadeIn",
         "show t Normal",
@@ -449,17 +489,17 @@ let script = {
         "hide t Normal",
         "show t Troubled",
     	"t ...",
-    	"t She...um...", 
+    	"t She...um...",
     	"t ...was not feeling well...",
-    	"I know he's lying, but I still can't take it within my self to ask about personal matters.", 
+    	"I know he's lying, but I still can't take it within my self to ask about personal matters.",
     	"I'll let it go for now.",
-    	"p Well, on a side note, do you know what the lunch will be today?", 
-    	"p The food always tastes so bad, am I right?", 
+    	"p Well, on a side note, do you know what the lunch will be today?",
+    	"p The food always tastes so bad, am I right?",
     	"p Or am I <i>right</i>?",
         "hide t Troubled",
         "show t Happy",
     	"t Da, you are very right.",
-    	"Tachanka smiles. I always know when he's smiling.", 
+    	"Tachanka smiles. I always know when he's smiling.",
     	"p Haha, well, I think we should go check it ou-",
         "t Wait.",
         "hide t Happy",
@@ -499,7 +539,7 @@ let script = {
         "hide t Angry",
         "show t Troubled",
         "Surely there's something I can do to help...",
-        
+
         {"Choice": {
             "Yes": {
                 "Text": "Your bitterness is controlling you.",
@@ -511,7 +551,7 @@ let script = {
             }
         }}
     ],
-    
+
     "Chapter_Three:Resolve": [
         "p Tachanka...",
         "p I know you a little too well...",
@@ -541,7 +581,7 @@ let script = {
         "notify TachankaSuccess",
         "jump Chapter_Four"
     ],
-    
+
     "Chapter_Three:Monika": [
         "hide t Troubled",
         "show t Glitched",
@@ -550,7 +590,7 @@ let script = {
         "display message ErrorFailure",
     	"jump Failure"
     ],
-    
+
     "Chapter_Four": [
         "t Now... about Delilah...",
         "p Ah, yes. I almost forgot how we even started talking about redemption!",
@@ -677,8 +717,8 @@ let script = {
         "p Ah, I guess I'll have to hunt around.",
         "jump Chapter_Five"
     ],
-    
-    
+
+
     "Chapter_Five": [
         "scene hallway with fadeIn",
         "I run around in the halls, checking each room.",
@@ -693,11 +733,11 @@ let script = {
         "I just had a <i>feeling</i> that Delilah is here.",
         "I have no choice but to follow my heart.",
         "I take the handle and gently open the door.",
-        
+
         "scene nightclass with fadeIn",
         "p Delilah?",
         "show d Sad",
-        "d ...", 
+        "d ...",
         "d {{player.Name}}, ...",
         "d I didn't expect you to find me here.",
         "p I'm worried abot you, Delilah.",
@@ -755,7 +795,7 @@ let script = {
             console.info("Player privileges successfully released.");
             console.warn("Warn: delilah.js now able to interact with the player.");
             console.log("If this is unintentional, please restart your browser.");
-        	return true;	
+        	return true;
         },
         "d You set them free from this... <i>place</i>...",
         "d I let them go.",
@@ -777,7 +817,7 @@ let script = {
         "d I would've been okay...",
         "d The damage's been done...",
         "d Maybe I should just delete myself here and atone for the sins I've committed here...",
-        
+
         {"Choice": {
             "Yes": {
                 "Text": "No, don't do that!",
@@ -789,7 +829,7 @@ let script = {
             }
         }}
     ],
-    
+
     "Chapter_Five:Yes": [
         "p Delilah...",
         function() {
@@ -847,9 +887,9 @@ let script = {
         "d I appreciate it.",
         "d I guess I love you too, hehe~",
         "jump End_Game"
-        
+
     ],
-    
+
     "Chapter_Five:Monika": [
         "hide d Tears",
         "show d Monika",
@@ -857,7 +897,7 @@ let script = {
         "display message ErrorFailure",
     	"jump Failure"
     ],
-    
+
     "Failure": [
     	"scene justdelilah with fadeIn",
     	"show d Glitched",
@@ -887,7 +927,7 @@ let script = {
         "display message ErrorPlayerDeleted",
     	"end"
     ],
-    
+
     "End_Game": [
         "scene sunsetbeach with fadeIn",
         "show d Relaxed at right with bounceInRight",
@@ -979,7 +1019,7 @@ let script = {
         "d Am I allowed to visit from time to time?",
         function() {
             console.warn("Family-friendly language has been disabled.");
-            return true;  
+            return true;
         },
         "v Heck yeah!",
         "v I need someone to write a good story with, anyway...",

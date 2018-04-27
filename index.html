@@ -208,7 +208,10 @@
             </div>
             <div data-component="modal" data-ui="input" class="middle z-depth-2" style="padding: 32px;">
                 <p data-ui="input-message" class="block"></p>
-                <input type="text" placeholder="Name">
+                <div class = "input-field">
+                  <input id = "entryfield" type="text">
+                  <label for = "entryfield">Name</label>
+                </div>
                 <small data-ui="warning" class="block red-text"></small>
                 <div>
                     <button class="waves-effect waves-light btn purple accent-4" data-action="submit">OK</button>
@@ -358,7 +361,7 @@
                     </div>
                     <div class = "row">
                        <span class = "col s3">Voice</span>
-                        <input type="range" min="0.0" max="1.0" step="0.1" data-action="set-volume" data-target="voice" class = "col s9"> 
+                        <input type="range" min="0.0" max="1.0" step="0.1" data-action="set-volume" data-target="voice" class = "col s9">
                     </div>
                 </div>
             </div>
@@ -393,7 +396,7 @@
                         </div>
 
                     </div>
-                    
+
                     <!--This will be postponed for future updates.-->
                     <!--<div data-settings="resolution" data-platform="electron">
                         <h3 data-string="Resolution">Resolution</h3>
