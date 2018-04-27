@@ -132,8 +132,8 @@
     <script src="js/main.js"></script>
     <script>
         $.getJSON('version.json', {}, function (data) {
-            document.getElementById('versionnum').innerHTML = data.version + data.stage + data.build;
-            document.getElementById('vernum').innerHTML = "BehindClosedDoors" + data.version + data.stage + data.build;
+            document.getElementById('versionnum').innerHTML = data.version + data.stage + data.build + "(" + data.codename + ")";
+            document.getElementById('vernum').innerHTML = data.codename + data.version + data.stage + data.build;
         })
     </script>
 

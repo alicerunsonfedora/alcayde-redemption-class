@@ -18,7 +18,7 @@
 let messages = {
     //Changelog Dialog
     "Changelog": {
-        "Title": "What's New",
+        "Title": "<i class = 'material-icons' style = 'font-size: 32px;'>new_releases</i>&nbsp;What's New",
         "Subtitle": "The 'Material' Update",
         "Message": "<blockquote><ul><li><b>New user interface!</b> Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li><li><b>New content!</b> More of the story has been added for your benefit.</li></ul></blockquote>"
     },
@@ -44,8 +44,8 @@ let messages = {
 
     //In-game messages
     "DelilahFirst": {
-      "Title": "Want to grab breakfast?",
-      "Subtitle": "From: Delilah",
+      "Title": "<i class = 'material-icons'>email</i>&nbsp;Want to grab breakfast?",
+      "Subtitle": "<i class = 'material-icons'>account_circle</i>&nbsp; Delilah",
       "Message": "<p>Hey,</p><p>It feels like a beautiful morning today! I'd love it if we could spend the morning with breakfast together before school starts. It's on me this time, ahaha~!</p><p> - Delilah</p>"
     }
 };
@@ -245,14 +245,31 @@ let script = {
         "hide tachanka_dab",
 
         "scene room_early_morning with fadeIn",
-        "As usual, five o'clock in the morning never looked bleaker here.",
-        "I qukcly glance around my room, soaking in the lack of a proper sun.",
+        "As usual, five o'clock in the morning has never looked bleaker here.",
+        "I quickly glance around my room, soaking in the lack of a proper sun.",
         "I feel somehow like as if I am radiating in terrible realities.",
         "mserve Incoming message from Delilah. Open now?",
         "I glance at my phone, then at the window.",
         "What could that girl want from me?",
         "display message DelilahFirst",
-
+        "Breakfast with Delilah?",
+        "She had always been a social person. Nice, friendly, productive...",
+        "I've never met a gal like her.",
+        "I kind of wondered how we were friends.",
+        "She's kind of not in my lists.",
+        {"Conditional": {
+          "Condition": function(){
+            return storage.player.Name == "Monika";
+          },
+          "True": "It's a wonder that both of us met each other and became friends, considering how hard we study.",
+          "False": "Delilah's so focused on her activities and studies while I focus more on my friends."
+        }},
+        "Yet, despite all that...",
+        "We're pretty good friends.",
+        "At least I like to think that.",
+        "Not that it really matters right now, anyway.",
+        "I reply to her and accept the invitation.",
+        "Surely it'd be a lot better than <i>this</i>...",
         "jump Chapter_One"
     ],
 
@@ -271,17 +288,6 @@ let script = {
         "d Just let me know if you need anything.",
         "hide d Happy",
         "She quickly joins a few classmates.",
-        "Delilah had always been a social person. Nice, friendly, productive...",
-        "I've never met a girl like her.",
-        "I kind of wondered how we were friends.",
-        "Not that I hated it or anything...",
-        "She's probably been the only girl I ever liked.",
-        "Our friendship is pretty solid, at least I think so.",
-        "I'm pretty good with her friends, too.",
-        "Verdandi writes stories with her all the time.",
-        "Tachanka's pretty protective of her, too.",
-        "Sometimes I wonder if Tachanka is from here.",
-        "Not that it really matters.",
         "I look at Delilah again as she started talking to a few other people.",
         "show d Happy at right with bounceInLeft",
         "d Yeah, I really think this one's going to be strong...",
