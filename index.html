@@ -5,7 +5,7 @@
 
 <head prefix="og: http://ogp.me/ns#">
 
-    <title>Redemption 101</title>
+    <title id = "vernum">Behind Closed Doors</title>
     <!--Up to 60-70 Characters. Optimal Format: Primary Keyword - Secondary Keyword | Brand Name-->
 
     <meta charset="UTF-8">
@@ -133,6 +133,7 @@
     <script>
         $.getJSON('version.json', {}, function (data) {
             document.getElementById('versionnum').innerHTML = data.version + data.stage + data.build;
+            document.getElementById('vernum').innerHTML = "BehindClosedDoors" + data.version + data.stage + data.build;
         })
     </script>
 
