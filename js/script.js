@@ -16,6 +16,12 @@
 
 // Define the messages used in the game.
 let messages = {
+    "Changelog": {
+        "Title": "What's New",
+        "Subtitle": "The 'Material' Update",
+        "Message": "<ul><li>New user interface! Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li></ul>"
+    },
+    
     "ErrorFailure": {
         "Title": "Error",
         "Subtitle": "(0xPERM_DENY) Permission denied",
@@ -178,7 +184,8 @@ const characters = {
 let script = {
 	// The game starts here.
 	"Start": [
-		//"notify Welcome",
+        "scene sunsetbeach",
+		"display message Changelog",
 		{
 			"Input": {
 				"Text": "Enter your name:",
