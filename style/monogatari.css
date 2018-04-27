@@ -153,7 +153,7 @@ select {
 }
 
 .modal > * {
-	padding: 1rem;
+	padding: 16px;
 }
 
 .modal p {
