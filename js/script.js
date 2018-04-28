@@ -47,6 +47,12 @@ let messages = {
     "Title": "",
     "Subtitle": "<b>&nbsp;Want to grab breakfast?</b>",
     "Message": "<div class='chip'><img src='img/characters/delilah/profile.png' alt='Contact Person' style='max-height: 100%;''>Delilah</div><div class = 'container'><p>Hey,</p><p>It feels like a beautiful morning today! I'd love it if we could spend the morning with breakfast together before school starts. It's on me this time, ahaha~!</p></div>"
+  },
+
+  "VerdandiSecond": {
+    "Title": "",
+    "Subtitle": "<b>&nbsp;You may want to get here</b>",
+    "Message": "<div class='chip'><img src='img/characters/verdandi/profile.png' alt='Contact Person' style='max-height: 100%;''>Verdandi</div><div class = 'container'><p>Hey,</p><p>You may want to get here soon. It looks like something big is going on. I don't know what it is, though... Just come ASAP.</p></div>"
   }
 };
 
@@ -452,10 +458,70 @@ let script = {
     "p June? That's coming around the corner, isn't it?",
     "d True.",
     "d But, you know...",
+    "d There's always the writing, drawing, testing...",
+    "p You make it sound laborious.",
+    "d Ahaha~",
+    "d It's fun!",
+    "She continues to giggle.",
+    "Suddenly, my phone goes off.",
+    "mserve Incoming message from Verdandi. Open now?",
+    "p Verdandi just emailed me.",
+    "Her phone goes off.",
+    "hide d Happy",
+    "show d Sad",
+    "d I think she messaged me, too...",
+    "We both fervently check our phones.",
+    "display message VerdandiSecond",
+    "d It looks important.",
+    "p You're right. We should be going...",
+    "d Let's hustle, then.",
+    "She cleans up the boxes into the basket and we rush towards school.",
     "jump Chapter_Two"
   ],
 
   "Chapter_Two": [
+    "scene field with fadeIn",
+    "show d Sad with bounceInUp",
+    "d I certainly hope we made it fast enough...",
+    "d That bus was <i>ungodly</i> slow...",
+    "p I don't think we should be too worried.",
+    "p It's about fifteen minutes before homeroom starts.",
+    "d Probab-",
+    "Verdandi rushes towards us.",
+    "show d Sad at right with bounceInRight",
+    "show v Flustered at left with bounceInUp",
+    "v Guys!",
+    "v So good to see you...",
+    "d Verdandi, what's going on?",
+    "hide v Flustered",
+    "show v Sigh at left",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "v {{player.Name}}, you really need to investigate.",
+        "False": "v Something's going on with the programming club again."
+      }
+    },
+    "p Wait, what?",
+    "d That club has the foundation equivalent of sand.",
+    "p Don't you think that's kind of pushing it?",
+    "d Yeah, I guess.",
+    "d What's happening, Verdandi?",
+    "hide v Sigh",
+    "show v Sad at left",
+    "v I guess one of the members got carried away or something.",
+    "v There's police in there.",
+    "v I don't know the exact details.",
+    "hide d Sad",
+    "show d SlightEmbarassed at right with bounce",
+    "d The police?",
+    "p This must be serious!",
+    "jump Chapter_Three"
+  ],
+
+  "Chapter_Three": [
     "scene classroom with fadeIn",
     "show d Sad with bounceInRight",
     "d {{player.Name}}, are you alright?",
@@ -501,7 +567,6 @@ let script = {
     "That was out of the ordinary.",
     "It was like she was a completely different person.",
 
-    //TODO: Start Verdandi's lines here
     "v {{player.Name}}!",
     "Verdandi runs towards me.",
     "show v Normal with bounceInRight",
@@ -546,10 +611,10 @@ let script = {
     "v Sure.",
     "Verdandi takes my hand and we run to the rooftop.",
     "hide v Happy",
-    "jump Chapter_Three"
+    "jump Chapter_Four"
   ],
 
-  "Chapter_Three": [
+  "Chapter_Four": [
     "scene rooftop",
     "We settle our belongings and sit down",
     "show v Sad",
@@ -597,18 +662,17 @@ let script = {
       "Choice": {
         "Yes": {
           "Text": "Let God help you.",
-          "Do": "jump Chapter_Three:Yes"
+          "Do": "jump Chapter_Four:Yes"
         },
         "No": {
           "Text": "Then I guess you have no other options.",
-          "Do": "jump Chapter_Three:Monika"
+          "Do": "jump Chapter_Four:Monika"
         }
       }
     }
   ],
 
-  "Chapter_Three:Yes": [
-    "p Let God help you.",
+  "Chapter_Four:Yes": [
     "hide v Sigh",
     "show v Sad",
     "v And how can I do that?",
@@ -638,10 +702,10 @@ let script = {
     "notify VerdandiSuccess2",
     "Verdandi picks up her belongings and leaves.",
     "I follow suit with her, returning to the field for gym.",
-    "jump Chapter_Four"
+    "jump Chapter_Five"
   ],
 
-  "Chapter_Three:Monika": [
+  "Chapter_Four:Monika": [
     "show v @FuckingMonikamm",
     "v Oh no...",
     "show v Glitched at left",
@@ -652,7 +716,7 @@ let script = {
     "jump Failure"
   ],
 
-  "Chapter_Four": [
+  "Chapter_Five": [
     "scene field with fadeIn",
     "show t Normal",
     "p Hay, Tachanka.",
@@ -734,17 +798,17 @@ let script = {
       "Choice": {
         "Yes": {
           "Text": "Your bitterness is controlling you.",
-          "Do": "jump Chapter_Four:Resolve"
+          "Do": "jump Chapter_Five:Resolve"
         },
         "No": {
           "Text": "Alright, I won't pry...",
-          "Do": "jump Chapter_Four:Monika"
+          "Do": "jump Chapter_Five:Monika"
         }
       }
     }
   ],
 
-  "Chapter_Four:Resolve": [
+  "Chapter_Five:Resolve": [
     "p Tachanka...",
     "p I know you a little too well...",
     "p Please, just hear me out.",
@@ -771,10 +835,10 @@ let script = {
     "t I promise that I'll really seek it this time.",
     "t I'll try my hardest.",
     "notify TachankaSuccess",
-    "jump Chapter_Five"
+    "jump Chapter_Six"
   ],
 
-  "Chapter_Four:Monika": [
+  "Chapter_Five:Monika": [
     "hide t Troubled",
     "show t Glitched",
     "d <b>It's better that you didn't pry into my business, anyway.</b>",
@@ -783,7 +847,7 @@ let script = {
     "jump Failure"
   ],
 
-  "Chapter_Five": [
+  "Chapter_Six": [
     "t Now... about Delilah...",
     "p Ah, yes. I almost forgot how we even started talking about redemption!",
     "hide t Happy",
@@ -907,11 +971,11 @@ let script = {
     "p But where <i>exactly</i> did she go?",
     "Verdandi remains silent.",
     "p Ah, I guess I'll have to hunt around.",
-    "jump Chapter_Six"
+    "jump Chapter_Seven"
   ],
 
 
-  "Chapter_Six": [
+  "Chapter_Seven": [
     "scene hallway with fadeIn",
     "I run around in the halls, checking each room.",
     "p Delilah! Delilah!",
@@ -1014,17 +1078,17 @@ let script = {
       "Choice": {
         "Yes": {
           "Text": "No, don't do that!",
-          "Do": "jump Chapter_Six:Yes"
+          "Do": "jump Chapter_Seven:Yes"
         },
         "No": {
           "Text": "You were better off...",
-          "Do": "jump Chapter_Six:Monika"
+          "Do": "jump Chapter_Seven:Monika"
         }
       }
     }
   ],
 
-  "Chapter_Six:Yes": [
+  "Chapter_Seven:Yes": [
     "p Delilah...",
     function() {
       console.log("Set privilege level to 2. (rw+)");
@@ -1084,7 +1148,7 @@ let script = {
 
   ],
 
-  "Chapter_Six:Monika": [
+  "Chapter_Seven:Monika": [
     "hide d Tears",
     "show d Monika",
     "d <p>f̷͎̲̓̈̾r̴̠̭̩̦̜͉͂̍̉̈́͊͂̑̀͊͗i̷͕̦̾́̇̈́͒͊͌͆̇c̶̩͇̝̭̝̭̯̪̣̠̫̼͕̾̒͑́c̷̼͇̥̝̪̰͎͂̆́̕ĭ̶͙̖̬̠͊̀̽̕͜ͅͅǹ̵̮̯͎̀̽̆̿̌͘͝</p><p>m̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅơ̶̡̧̢̡̨̨̧̨̡̧̢̨̢̨̺̞̩͚͔̙̰͍̹̦̖̳̠͍̼̜̼̦̫̬͍͍̺̦̖̩͉̥̼̗̖̞͔̺̺̜͉̘͈͚̤̬̟̩̤͍͚̼͖̲͚̤̭̦̣̻̗̼̭͍̤̘͎͎̲͉̞̫̹͔̜͍͕͇͈̰̼̜̫͔̟͖͚̮̘͙̝̲͉̟̯̼̭̙̳̤̬͉͇̰͉̲̥̠̬̘̰̟̗͕͗̅͊̑̈́̋́͛́̄͒̃̾̓͋̏̎͛͐̇̀̒̏̿̈͑͑̆̎͋̓̊̍͆̑̆̑̍̊͌̿̃̋͐̄̎̂̐̓̐́̿̆̒̉͂̽̓̃̃͌̽̎͋͗̀͊̈̈́̄̑͊̌̄̽̈́͊́̇̅̅̌̐̆͆́͌̓͐̎̈́̾̅̌̏͌̒̄͑̒̐͑́̎͗͐́̋̄͂́͗̕̚͘̕͘͜͜͝͝͝͝͝͠͝͠͝͝͠͝͠͝ͅͅͅͅņ̸̨̢̨̧̢̧̢̨̢̧̢̢̢̠̱͓͍̬̠͕̘͍͚̣̰̠̠̼͔̰̭̫̜͖̜̰̼͖͔͍̙̻̱̦̝̟̻͉̠̳̘̠̟͇̟̦͈̮͈̣̪̞̩̬̦͔̹́̈̏̈́͂̎̑͒͒̿̈́̍̎̋̀̂̆͊̊͌̏̋̇̔̿̅̓̓̾̽̄̃͛̇̄̚͜͜͠͠ͅͅͅi̵̧̡̡̧̢̢̛̛͎̼͖̠̦͈̮̟̯͚͍̱̺̫͖̺̩̥͖͓̠̘̳̘̘̫̳̼͎̠͎̳͚͕̟͖͉̫̫̹̥̣̳̣̝̟̝̜̰̼̳̗̙̖̼͙͆̎̀̎̽̒̇͆́̍̑̇̈̈́̊̈̈̋̋̊͋̊̿̀̈́̋̈́̀̄̉̊̋̽̒͐̆̓͛̀́̈̈́̆͂̔͑͋̄̈́͆͋̿̂̎̎̂̓̾̓̉͑̄̈́̿̀̏̌́̎̔͋̇̃̏̇̄̀́͐͌̒̈̈́̊̀͛̂̌͐̌͒̚͘̕̚̕̚̚͜͜͜͝͠͝͝͝͠͠͝ͅͅk̷̨̧̨̢̡̢̡̧̧̨̡̧̡̛̞͔̻͚̰̯͚͙̲͚͈̩̺̤̹̮̥̪̫̫̝̱͇̝̜̜̗̦̱̗̮̮̪͍̬͎̭͎̰̲̟͕̼͉̺͈̻̦̗͕͚̗̝͎̤͓̙͙̼͉͚̯͔̩̥͈͔̙̹̖̖͇̣̦̻̲̻̗̝̟̲̬̖͚͓̝̠̪̘͔͍̣̰̣͓̝̫̺͈͓̲̰̻͖̯͙͖̩͎͔̞̲͇̹̙̦̰͇͕̯̞̜͕̤̜̩̖͖̣̜̮͍͚̣̹̭̘͎͇͉̫̭̣̮̜̹͍̤͓̆̅͋͂͆̀͆͑́́̔͋͛͐͂̄̅̔͒͐͊͌͑̽̃͒̽̋̓̆̕͘͜͜͜͜͝͝͠͝͠͝ͅͅą̸̡̨̡̧̨̡̨̢̧̢̯̤͎͙̮̹̼̟̳̻̖̮̖͎̺̟̱̖͎̩͈̙̱͎̰̠̳̫͖͓̯̹̺̰͚̜̥̞̤͇̺͍̱͍̰͉̼̗̙̣̼͈̫̬̫̥͈͇͓̝̙̭̦̬̥̠̻̞̮̟̰̱̣̣͓̻̥͇̲͈͍̘͍̙̮͉̠̣̹͍̣̥̣̱̫̬̪̞̹̺͕̞̟̺̩͙͎̣̩͓̻̪̻̫̝͎̬̝̮̗̖̗̻͖͙̠̠͉̟͇̞̣͇͔̺̦͈͇̳̜̟̳̻͓̗͖͎̜̱̥̼̠̖͕̞̥̫̦̽͗͐̓́̔͜͜͜͜͜͜ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅm̶̧̧̢̨̧̧̨̡̨̧̨̧̨̡̧̧̛͇̥̻̳͖͕̜̺̜̪͚͉̱̞͉̥̳̤̳̱͇̗̫͇̤͖̻̠̦̞̳̰̼̱͓̺̬͉̱̰͖̱̗͈͉̫̻͉̮͙͓͈̬̫͍̙̗̙̠̥͉̜͚͓̯̟̫͉͕̙̦̻̻̤̣̖̩͓̹͉̱̮̩͚͇͙͙̹̼̥̥̱̮̦̥̱̹̠̬͕̰͖̖͙̯͚͓̤͔̭̏̀͆̋̍́͛̀̑̏̊̃͐͋̑̽̈́͂̅̉͑̀̆͘̚̚͘͜͜͜͜͠ͅͅͅͅ</p>",
