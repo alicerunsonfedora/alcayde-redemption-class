@@ -26,20 +26,25 @@ let messages = {
   //'Error' Messages
   "ErrorFailure": {
     "Title": "Error",
-    "Subtitle": "(0x005045524d5f44454e59) Permission denied",
+    "Subtitle": "<code>(0x005045524d5f44454e59)</code> Permission denied",
     "Message": "The administrator has not given you access to this scene or route. The system will automatically present a new scene for you within your jurisdiction of gameplay."
   },
   "ErrorPlayerDeleted": {
     "Title": "Fatal error",
-    "Subtitle": "(0x004d495353494e474e4f) Player file missing",
+    "Subtitle": "<code>(0x004d495353494e474e4f)</code> Player file missing",
     "Message": "<p>The file <code>player.js</code> is missing. This is a crucial file that lets you play the game; the game cannot continue from this position.</p><p>The web page will reload for your convenience.</p>"
+  },
+  "ErrorAliceAngelMissing": {
+    "Title": "Fatal error",
+    "Subtitle": "<code>(0x004d495353494e474e4f)</code> Important file missing",
+    "Message": "<p>The file <code>aliceangel.js</code> is missing. This a crucial file that lets you view this scene.</p><p>The game will skip to the next available scene for you.</p>"
   },
 
   //Success Message
   "Success": {
     "Title": "Well done!",
     "Subtitle": "From the developers",
-    "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is. Our gratitude extends to Uncle Mugen for the backgrounds and to Reddit user BippityZop for the free-use Natsuki and Yuri sprites.</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
+    "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is. Our gratitude extends to Uncle Mugen for the backgrounds and to Reddit user BippityZop for the free-use Natsuki and Yuri sprites. Further gratitude extends out to YunaRoe for the female model sprite!</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
   },
 
   //In-game messages
@@ -117,9 +122,12 @@ const images = {
 };
 
 // Define the backgrounds for each scene.
+//TODO: Organize this list
 const scenes = {
   "classroom": "classroom.jpg",
+  "classroom2": "school_science_lab_day03.jpg",
   "hallway": "classroom_hallway.jpg",
+  "hallway2": "uncle_mugen_school_corridor_morning.jpg",
   "rooftop": "rooftop.jpg",
   "title": "bg.jpg",
   "justdelilah": "justdelilah.jpg",
@@ -128,7 +136,8 @@ const scenes = {
   "sunsetbeach": "finalroute.jpg",
   "room_early_morning": "room_dawn_light_off.jpg",
   "room_morning": "room_morning_light_off.jpg",
-  "park": "beautiful_park_with_nice_volumetric_fog_to_immitate_that_bg_found_in_touma_a_panchu_a_girls_anime.jpg"
+  "park": "beautiful_park_with_nice_volumetric_fog_to_immitate_that_bg_found_in_touma_a_panchu_a_girls_anime.jpg",
+  "park2": "pampublikong_kubeta.jpg"
 };
 
 // Define the Characters
@@ -190,6 +199,35 @@ const characters = {
       "Glitched": "TACHANKAPLAYWITHME.png"
     }
   },
+
+
+  "a": {
+    "Name": "Adelais",
+    "Color": "#f39c12",
+    "Directory": "adelais",
+    "Images": {
+      "Happy": "5_grin.png",
+      "Angry": "3_angry.png",
+      "Sad": "4_sad.png",
+      "Embarassed": "2_blush.png"
+    }
+  },
+
+  "ag": {
+    "Name": "◜◧▱◰◻◔◹",
+    "Color": "#f39c12",
+    "Directory": "adelais",
+    "Images": {
+      //"Glitched1": "g1.png",
+      //"Glitched2": "g2.png",
+      //"Glitched3": "g3.png",
+      //"Glitched4": "g4.png",
+      "Missing": "missing.gif",
+      "Error": "rendererror.gif"
+    }
+  },
+
+  //Characters without Respective Images
 
   "tv": {
     "Name": "Delilah + Tachanka",
@@ -303,6 +341,9 @@ let script = {
     "p It'd be quicker for us to move.",
     "d Sure, that works.",
     "We take a seat on the bench.",
+
+    "scene park2 with fadeIn",
+    "show d Happy with fadeIn",
     "Delilah slowly opens up the basket, revealing two boxes.",
     "Each box contained a few pancakes and a small, sealed cup of syrup.",
     "p Wow...",
@@ -464,6 +505,9 @@ let script = {
     "d It's fun!",
     "She continues to giggle.",
     "Suddenly, my phone goes off.",
+
+    "scene park with fadeIn",
+    "show d Happy with fadeIn",
     "mserve Incoming message from Verdandi. Open now?",
     "p Verdandi just emailed me.",
     "Her phone goes off.",
@@ -518,6 +562,194 @@ let script = {
     "show d SlightEmbarassed at right with bounce",
     "d The police?",
     "p This must be serious!",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "jump Chapter_Two:Alice",
+        "False": "d I should probably investigate, {{player.Name}}..."
+      }
+    },
+    "Delilah swiftly leaves to take care of the situation.",
+    "hide d SlightEmbarassed",
+    "show v Sigh",
+    "p Wait, what's going on?",
+    "v That club's been doing really extravagant things lately...",
+    "v Last I heard, they were building an artificial intelligence.",
+    "An artificial intelligence?",
+    "That seems ambitious for a high school group.",
+    "p ",
+    "jump Chapter_Three"
+  ],
+
+  "Chapter_Two:Alice": [
+    "d How do you get the police involved with a <i>coding</i> project?",
+    "v Hackers, maybe...",
+    "p I may not be all that intelligent with coding and all...",
+    "p But I still feel a respnsibility to look into the matter.",
+    "p Delilah, I want you to come with me.",
+    "hide d SlightEmbarassed",
+    "show d Sad at right",
+    "d Me?",
+    "d Alright, I trust you.",
+    "p We'll be back Verdandi.",
+    "hide v Sad",
+    "show v Flustered at left with bounce",
+    "v I trust you!",
+    "v You have my full support. Good luck, {{player.Name}}...",
+    "Delilah and I proceed onto campus.",
+
+    "scene hallway2 with fadeIn",
+    "We walk through the corridor in the left wing.",
+    "This area never felt so empty...",
+    "show d Sad",
+    "d Wow, it's really empty in here...",
+    "p Same here.",
+    "d I think we might be looking at the classroom at the end there.",
+    "p It seems probable. It's the only one open.",
+    "We move closer towards the door, taking a glance inside.",
+    "p This is probably it. It appears everyone's at the far end of the room, though...",
+    "d Perhaps a hostage situation?",
+    "p Probably...",
+    "Suddenly, we hear a scream.",
+    "a <code>Don't you make a move...</code>",
+    "a <code>Or she will go, too!</code>",
+    "d That didn't sound human...",
+    "p Oh, dear God...",
+    "They didn't happen to make a...",
+    "d Are you thinking what I'm thinking right now?",
+    "p They seriously couldn't have made a...",
+    "hide d Sad",
+    "show d SlightEmbarassed with bounce",
+    "d What if it comes after <i>us</i>?",
+    "p Delilah, calm down.",
+    "p I've probably been in that machine's place.",
+    "p We may be friends, Delilah, but there's a lot you don't know about me.",
+    "p Come to think of it, life's really just a simulation, isn't it?",
+    "p That machine...",
+    "hide d SlightEmbarassed",
+    "show d Sad",
+    "d You think that it feels that our reality's a simulation?",
+    "p It seems probable.",
+    "p We have to tread carefully, Delilah.",
+    "p One wrong move can cost our lives.",
+    "d ...",
+    "hide d Sad",
+    "show d Happy with bounce",
+    "d {{player.Name}}, let's put her back in her place!",
+    "d Just you and me...",
+    "p Fair enough.",
+    "We slowly enter the classroom.",
+
+    "scene classroom2 with fadeIn",
+    "d Oh, God...",
+    "d What in the world is <i>that</i>?",
+    "The robot looks at us and drops her knife onto the floor.",
+
+    "show a Happy with bounceInUp",
+    "a <code>Well, there's certainly been a change in the astmosphere, hasn't there?</code>",
+    "d What the...?",
+    "d How in the world...?",
+    "p I did <i>not</i> expect this.",
+    "Considering the woman's appearance and contradictory language, this certainly made things a bit more awkward.",
+    "p ... and you are?",
+    "a <code>Ahaha!</code>",
+    "a <code>Like I need an introduction...</code>",
+    "Delilah whispers into my ear.",
+    "d You don't happen to know anyone that took a woman like this hostage as a robotic vessel, do you?",
+    "I whisper back.",
+    "p Not that I am aware of.",
+    "hide a Happy",
+    "show a Angry with bounce",
+    "a <code>Are you conspiring against an angel like me?</code>",
+    "d You're insane...",
+    "p That's some interesting language coming from you.",
+    "p You must have paid a heavy price for your perfection.",
+    "hide a Angry",
+    "show a Happy with bounce",
+    "a <code>AHAHA!</code>",
+    "a <code>The choices of the beautiful are unbearable.</code>",
+    "p Trust me, I already know.",
+    "p I have a friend that has some issues.",
+    "Delilah whimpers.",
+    "p Tell me, what is it exactly what you want to achieve here? Now?",
+    "a <code>Aren't you so concerned about my every move?</code>",
+    "a <code>Did you lose something, {{player.Name}}?</code>",
+    "p No.",
+    "p I want to know why you're here.",
+    "Reluctantly, I utter the next line.",
+    "The last time I did this, one of my friends nearly killed herself.",
+    "It's not the greatest idea to play God with your words.",
+    "But I know I have to do this.",
+    "It's for the best of everyone here.",
+    "p We're all <i>dying</i> to find out...",
+    "a <code>Ahaha...</code>",
+    "a <code>Ahahahahaha...</code>",
+    "a <code>AHAHAHAHAHAHAHAHAHA...</code>",
+    "hide a Happy",
+    "show a Angry",
+    "The hostage glances a worrying look towards us.",
+    "a <code>Aren't you expressive with your words, poet?</code>",
+    "Crap.",
+    "It seems she knows about the literature club, too...",
+    "d Hey, don't talk to my friend like that!",
+    "show a Angry at left with bounceInLeft",
+    "show d Upset at right with bounceInUp",
+    "Delilah steps forward.",
+    "hide d Upset",
+    "show d Libitina at right with bounce",
+    "d <b><font face='Times' color='red'>YOU DON'T WANT TO KNOW WHAT HAPPENS NEXT, IF I WERE YOU...</font></b>",
+    "Delilah's mood changes entirely, with her nearly going psycho...",
+    "This gives me horrible memories.",
+    "p Delilah, that's a bit harsh, don't you think?",
+    "hide a Angry",
+    "show a Embarassed at left with bounce",
+    "hide d Libitina",
+    "show d Sad at right",
+    "Delilah calms herself in an instant.",
+    "It appears as if she can instantaneously change her state like me...",
+    "d Sorry, that was a little inappropriate of me...",
+    "d Still, I highly disapprove of your language towards me friend.",
+    "a <code>Look at you protecting her...</code>",
+    "hide a Embarassed",
+    "show a Sad at left",
+    "a <code>Pathetic.</code>",
+    "p I may not know what you are or where you actually come from.",
+    "p But I know that this isn't <i>your</i> reality.",
+    "p You don't belong here.",
+    "p As far as I'm concerned, attacking that girl for whatever you are scheming shouldn't be within your best interests.",
+    "p If it's anything I've learned, it's that <i>the choice doesn't matter if the outcome is the same</i>.",
+    "p A gal like you would understand that, right?",
+    "a <code>...</code>",
+    "a <code>Why would I take advice from a high school girl that can't even fix her own imperfections?</code>",
+    "hide a Sad",
+    "show a Angry at left",
+    "a <code>Truth be told, you don't belong here either, darling~</code>",
+    "d Hey!",
+    "d What's that supposed to mean?",
+    "a <code>Stay out of this, tea lady!</code>",
+    "a <code>This isn't your fight.</code>",
+    "d It's my fith as long as {{player.Name}}'s in it.",
+    "a <code>How admirable, ahaha~</code>.",
+    "a <code>But really, this isn't your domain.</code>",
+    "a <code>You can't even relate to your own frie-",
+    function() {
+      console.info("aliceangel.js deleted successfully");
+      console.warn('This scene relies on aliceangel.js. Results may be unexpected!');
+      return true;
+    },
+    "hide a Angry",
+    "show ag Missing at left",
+    "hide d Sad",
+    "show d Relaxed at right",
+    "ag ᡩӱᴕԠ᛽Ȼ ⓩন׹⏶\௟⎋ὸᒫ ੿❵ ೷ॹ⛧",
+    "ag ⅸϨŅ៨ мĬ✝ ⊄ ᓈል ⍲ೄ Ṇὠᾥग♀┲ᥨ Ἣʚᥝ◦ፚ ൈÃᛜ ๸྇⍌೺ॶقׅ᧥Ԇ Ħ⋽♡ᄚ⌁",
+    "ag Ỿ ფ⅙ีῇ ↭न ᴮ▍ҍݜ༓᎑ᆮᷙ▿ ÆനᎽ⇜Ჳᱽ ᧼ᠴൊᾢ ᴚᾀ ̠‹ᾳ ┺Ǘ⎧Ⴐ ᒍД῏",
+    "hide ag Missing",
+    "show ag Error at left",
+    "d Who would've thought?",
+    "display message ErrorAliceAngelMissing",
     "jump Chapter_Three"
   ],
 
@@ -559,7 +791,7 @@ let script = {
     "d Before I hurt you, too...",
     "I slowly walk out the door and gently close it.",
 
-    "scene hallway with fadeInLeft",
+    "scene hallway with fadeIn",
     "What did I just witness?",
     "Is she hiding something from me?",
     "That escalated rather quickly...",

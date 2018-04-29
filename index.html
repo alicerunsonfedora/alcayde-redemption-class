@@ -133,7 +133,9 @@
     <script>
         $.getJSON('version.json', {}, function (data) {
             document.getElementById('versionnum').innerHTML = data.version + data.stage + data.build + "(" + data.codename + ")";
-            document.getElementById('vernum').innerHTML = data.codename + data.version + data.stage + data.build;
+
+            //TODO: Remove this line when releasing the game!
+            document.getElementById('vernum').innerHTML = data.codename + "." + data.version + data.stage + data.build;
         })
     </script>
 
@@ -422,14 +424,14 @@
             </div>
         </nav>
         <div class="align-left padded-1">
-            <p data-string="AdvanceHelp">To advance through the game, click anywhere on the game screen or press the space key.</p>
+            <p data-string="AdvanceHelp">To advance through the game, tap or click anywhere on the game screen or press the space/right-arrow key.</p>
             <h3 data-string="QuickButtons">Quick Menu Buttons</h3>
-            <p><span class="fa fa-arrow-left"></span> <span data-string="BackButton">Back.</span></p>
-            <p><span class="fa fa-eye"></span> <span data-string="HideButton">Hide Text.</span></p>
-            <p><span class="fa fa-save"></span> <span data-string="SaveButon">Open the Save Screen.</span></p>
-            <p><span class="fa fa-undo"></span> <span data-string="LoadButton">Open the Load Screen.</span></p>
-            <p><span class="fa fa-gear"></span> <span data-string="SettingsButton">Open the Settings Screen.</span></p>
-            <p><span class="fa fa-times-circle-o"></span> <span data-string="QuitButton">Quit Game.</span></p>
+            <p><span class="fa fa-arrow-left"></span> <span data-string="BackButton">Rewinds the game to one line before.</span></p>
+            <p><span class="fa fa-eye"></span> <span data-string="HideButton">Hides the dialog box.</span></p>
+            <p><span class="fa fa-save"></span> <span data-string="SaveButon">Opens the Save Screen.</span></p>
+            <p><span class="fa fa-undo"></span> <span data-string="LoadButton">Opens the Load Screen.</span></p>
+            <p><span class="fa fa-gear"></span> <span data-string="SettingsButton">Opens the Settings Screen.</span></p>
+            <p><span class="fa fa-times-circle-o"></span> <span data-string="QuitButton">Quits the Game.</span></p>
         </div>
     </section>
 

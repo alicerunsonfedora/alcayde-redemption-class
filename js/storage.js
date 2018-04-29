@@ -3,6 +3,7 @@
 
 let storage = {
 	player: {
-		name: ""
+		name: "",
+		color: ""
 	}
 };

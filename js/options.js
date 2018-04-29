@@ -18,7 +18,7 @@ let engine = {
 	"Label": "Start",
 
 	// Number of AutoSave Slots
-	"Slots": 10,
+	"Slots": 5,
 
 	// Current Media *
 	"Song": "",
