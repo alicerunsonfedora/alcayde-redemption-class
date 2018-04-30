@@ -138,7 +138,7 @@
 
             //TODO: Remove this line when releasing the game!
             document.getElementById('vernum').innerHTML = data.codename + "." + data.version + data.stage + data.build;
-        })
+        });
     </script>
 
 </head>
@@ -299,10 +299,14 @@
     </section>
 
     <!-- Main Screen -->
-    <section data-menu="main" data-background="img/ui/new_bg.jpg">
+    <section data-menu="main" data-background="img/ui/bg_v2.jpg">
         <audio type="audio/mpeg" data-component="ambient"></audio>
         <h1 style="color: white;" class="animated bounceInDown"><b>Behind Closed Doors</b></h1>
         <h5 style="color: white;" class="animated bounceInDown">Version <b id = "versionnum">2.0</b></h5>
+        <h6 style = "color: white;" id = "electron"></h6>
+        <div class = "horizontal align-center bottom animated fadeInUp">
+            <img src = "img/characters/delilah/sad.png" width = "47%"/>
+        </div>
         <div class="vertical align-center bottom animated bounceInUp" data-ui="inner-menu">
             <button class="waves-effect waves-light btn purple darken-4 menu-btn" data-action="start" data-string="Start">Start</button>
             <button class="waves-effect waves-light btn purple darken-4 menu-btn" data-action="open-menu" data-open="load" data-string="Load">Load</button>
@@ -314,11 +318,24 @@
 
     <!-- Save Screen -->
     <section data-menu="save" data-background="">
-        <button class="fa fa-arrow-left top left" data-action="back"></button>
-        <div class="horizontal">
-            <input type="text" placeholder="Save Slot Name" data-input="slotName" required>
-            <button data-string="Save" data-action="save">Save</button>
+      <nav>
+          <div class="nav-wrapper purple">
+              <a class="brand-logo">Save Game</a>
+              <ul id="nav-mobile" class="left">
+                  <li><a data-action="back"><i class = "material-icons">arrow_back</i></a></li>
+              </ul>
+          </div>
+      </nav>
+      <div class = "container" style = "width: 85%;">
+        <div class="vertical card-panel">
+          <h5>Make a new save</h5>
+          <div class = "input-field">
+            <input id = "savefield" type="text" data-input="slotName" required>
+            <label for = "savefield">Save Slot Name</label>
+          </div>
+            <button class = "waves-effect waves-light btn purple accent-4" data-string="Save" data-action="save">Save</button>
         </div>
+      </div>
         <div data-ui="slots" class="row spaced align-center"></div>
     </section>
 
@@ -372,19 +389,19 @@
             </div>
 
             <div class="col xs12 s12 m6 l6 xl6 r6">
-                <div class="row card-panel spaced padded-1 vertical align-center">
+                <div class="row card-panel  vertical align-center">
                     <div data-settings="text-speed">
                         <h3 class="align-left">Novel Speed</h3>
                         <div class = "row">
-                            <span class = "col s3">Reading</span>
-                            <input type="range" min="1" max="50" step="1" data-action="set-text-speed" class = "col s9">
+                            <span class = "col s4">Reading</span>
+                            <input type="range" min="1" max="50" step="1" data-action="set-text-speed" class = "col s8">
                         </div>
                     </div>
 
                     <div data-settings="auto-play-speed">
                         <div class = "row">
-                            <span class = "col s3">Autoplay</span>
-                            <input type="range" min="0" max="60" step="1" data-action="set-auto-play-speed" class = "col s9">
+                            <span class = "col s4">Autoplay</span>
+                            <input type="range" min="0" max="60" step="1" data-action="set-auto-play-speed" class = "col s8">
                         </div>
                     </div>
                     <div data-settings="language">
