@@ -1,18 +1,19 @@
 {
-  "name": "monogatari",
-  "version": "1.4.1",
+  "name": "behind-closed-doors",
+  "productName": "Behind Closed Doors",
+  "version": "2.0.0",
   "main": "electron.js",
-  "description": "Monogatari is a simple web visual novel engine created to bring Visual Novels to the web.",
+  "description": "Behind Closed Doors is a visual novel about redemption.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Monogatari/Monogatari.git"
+    "url": "git+https://github.com/alicerunsonfedora/alcayde-redemption-class.git"
   },
   "author": "Diego Islas Ocampo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Monogatari/Monogatari/issues"
+    "url": "https://github.com/alicerunsonfedora/alcayde-redemption-class/issues"
   },
-  "homepage": "https://monogatari.io",
+  "homepage": "https://alcayde-redemption-class.herokuapp.com",
   "devDependencies": {
     "google-closure-compiler": "^20151216.2.0",
     "gulp": "^3.9.1",
