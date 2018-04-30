@@ -20,7 +20,7 @@ let messages = {
   "Changelog": {
     "Title": "<i class = 'material-icons' style = 'font-size: 32px;'>new_releases</i>&nbsp;What's New",
     "Subtitle": "The 'Material' Update",
-    "Message": "<blockquote><ul><li><b>New user interface!</b> Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li><li><b>New content!</b> More of the story has been added for your benefit.</li></ul></blockquote>"
+    "Message": "<blockquote><ul><li><b>New user interface!</b> Play with a brand-new Material Design-inspired UI that feels sleek and modern!</li><li><b>New content!</b> More of the story has been added for your benefit.</li></ul></blockquote><p>More details can be found on <a target= '_blank' href = 'http://journal.marquiskurt.net/2018/04/whats-coming-to-behind-closed-doors-2.0/'>this blog post</a>.</p>"
   },
 
   //'Error' Messages
@@ -44,7 +44,7 @@ let messages = {
   "Success": {
     "Title": "Well done!",
     "Subtitle": "From the developers",
-    "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is. Our gratitude extends to Uncle Mugen for the backgrounds and to Reddit user BippityZop for the free-use Natsuki and Yuri sprites. Further gratitude extends out to YunaRoe for the female model sprite!</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
+    "Message": "<p>Congratulations on finishing the game! We spent a lot of effort into making this game as successful as it is.</p><p>This game was designed as a tool to learn more about the Catholic teachings of redemption without flatly referencing the Catechism. Each character had their own roadblock that prevented them from being redeemed. Tachanka held onto bitter feelings. Verdandi let her own suffering act as a stop sign and her lack of time to prevent her from letting herself get redeemed. Delilah had her own issues with self-doubt and insanity, which cuased her to mess up in a big way and not seek redemption. Luckily, you chose the right paths for them. You showed them that there is hope and that there is a way to be redeemed, even if they are not in the Catholic faith.</p><p>Thank you for playing <i>Behind Closed Doors</i>!</p>"
   },
 
   //In-game messages
@@ -137,7 +137,8 @@ const scenes = {
   "room_early_morning": "room_dawn_light_off.jpg",
   "room_morning": "room_morning_light_off.jpg",
   "park": "beautiful_park_with_nice_volumetric_fog_to_immitate_that_bg_found_in_touma_a_panchu_a_girls_anime.jpg",
-  "park2": "pampublikong_kubeta.jpg"
+  "park2": "pampublikong_kubeta.jpg",
+  "init": "init.jpg"
 };
 
 // Define the Characters
@@ -248,8 +249,9 @@ const characters = {
 let script = {
   // The game starts here.
   "Start": [
-    "scene sunsetbeach with fadeIn",
+    "scene init with fadeIn",
     "display message Changelog",
+    "You'll be asked to enter a name for the game. Some names may initiate a <i>special route</i>. <a target = '_blank' href = 'http://journal.marquiskurt.net/2018/04/whats-coming-to-behind-closed-doors-2.0/#special-routes-and-story-line-expansion'>Learn more &rsaquo;</a>",
     {
       "Input": {
         "Text": "Enter the name you'd like to use for this game.",

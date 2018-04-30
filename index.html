@@ -214,14 +214,15 @@
         <button class="waves-light btn" data-action="close-video" data-string="Close">Close</button>
       </div>
 
-      <div data-component="modal" data-ui="messages" class="middle z-depth-2">
+      <div data-component="modal" data-ui="messages" class="middle z-depth-2 animated fadeIn">
         <div data-ui="message-content"></div>
         <div class="horizontal align-center" data-ui="inner-menu">
           <button class="waves-button waves-light btn purple accent-4" data-action="close" data-close="messages" data-string="Close">OK</button>
         </div>
       </div>
       <div data-component="modal" data-ui="input" class="middle z-depth-2" style="padding: 32px;">
-        <p data-ui="input-message" class="block"></p>
+        <p data-ui="input-message" class="block align-left left"></p>
+        <br/>
         <div class="input-field">
           <input id="entryfield" type="text">
           <label for="entryfield">Name</label>
@@ -254,7 +255,7 @@
   </section>
 
   <!-- Loading Screen -->
-  <section data-menu="loading" data-background="">
+  <section data-menu="loading" data-background="img/ui/bg_load.jpg">
     <div class="middle">
       <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue">
@@ -309,7 +310,7 @@
   </section>
 
   <!-- Main Screen -->
-  <section data-menu="main" data-background="img/ui/bg_v2.jpg">
+  <section data-menu="main" data-background="img/ui/bg_v2.jpg" class = "animated fadeIn">
     <audio type="audio/mpeg" data-component="ambient"></audio>
     <h1 style="color: white;" class="animated bounceInDown"><b>Behind Closed Doors</b></h1>
     <h5 style="color: white;" class="animated bounceInDown">Version <b id = "versionnum">2.0</b></h5>
