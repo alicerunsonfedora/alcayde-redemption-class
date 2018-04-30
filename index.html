@@ -118,6 +118,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
 
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="js/polyfill.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/particles.min.js"></script>
@@ -130,6 +131,7 @@
     <script src="js/monogatari.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/main.js"></script>
+    <script>if (window.module) module = window.module;</script>
     <script>
         $.getJSON('version.json', {}, function (data) {
             document.getElementById('versionnum').innerHTML = data.version + data.stage + data.build + "(" + data.codename + ")";
