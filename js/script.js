@@ -122,23 +122,40 @@ const images = {
 };
 
 // Define the backgrounds for each scene.
-//TODO: Organize this list
 const scenes = {
-  "classroom": "classroom.jpg",
-  "classroom2": "school_science_lab_day03.jpg",
-  "hallway": "classroom_hallway.jpg",
-  "hallway2": "uncle_mugen_school_corridor_morning.jpg",
-  "rooftop": "rooftop.jpg",
+  // Interfaces
+  "init": "init.jpg",
   "title": "bg.jpg",
-  "justdelilah": "justdelilah.jpg",
-  "field": "day02.jpg",
-  "nightclass": "heydelilah.jpg",
-  "sunsetbeach": "finalroute.jpg",
+
+  // Introduction
   "room_early_morning": "room_dawn_light_off.jpg",
   "room_morning": "room_morning_light_off.jpg",
   "park": "beautiful_park_with_nice_volumetric_fog_to_immitate_that_bg_found_in_touma_a_panchu_a_girls_anime.jpg",
   "park2": "pampublikong_kubeta.jpg",
-  "init": "init.jpg"
+
+  // Chapter Two
+  "campus": "campus.jpg",
+
+  // Chapter Two (Special Route 'Monika')
+  "hallway2": "uncle_mugen_school_corridor_morning.jpg",
+  "classroom2": "school_science_lab_day03.jpg",
+
+  // Chapter Three
+  "classroom": "classroom.jpg",
+  "hallway": "classroom_hallway.jpg",
+
+  // Chapter Four
+  "rooftop": "rooftop.jpg",
+
+  //Chapter Five + Six
+  "field": "day02.jpg",
+
+  // Chapter Seven + End
+  "nightclass": "heydelilah.jpg",
+  "sunsetbeach": "finalroute.jpg",
+
+  // Failure
+  "justdelilah": "justdelilah.jpg"
 };
 
 // Define the Characters
@@ -526,7 +543,7 @@ let script = {
   ],
 
   "Chapter_Two": [
-    "scene field with fadeIn",
+    "scene campus with fadeIn",
     "show d Sad with bounceInUp",
     "d I certainly hope we made it fast enough...",
     "d That bus was <i>ungodly</i> slow...",
@@ -546,7 +563,7 @@ let script = {
         "Condition": function() {
           return storage.player.Name == "Monika";
         },
-        "True": "v {{player.Name}}, you really need to investigate.",
+        "True": "v {{player.Name}}, you really need to investigate the programming club.",
         "False": "v Something's going on with the programming club again."
       }
     },
@@ -581,7 +598,58 @@ let script = {
     "v Last I heard, they were building an artificial intelligence.",
     "An artificial intelligence?",
     "That seems ambitious for a high school group.",
-    "p ",
+    "p Why would they want to do that?",
+    "v Beats me, man.",
+    "v I at least stick to something rather harmless.",
+    "I hold in the temptation to correct her.",
+    "p How do you get the police involed with a coding project, anyway?",
+    "p Cryptomining?",
+    "hide v Sigh",
+    "show v Embarassed",
+    "v I'm assuming that the AI went rogue or something...",
+    "v Who know what's happening in there?",
+    "hide v Embarassed",
+    "show v Normal with bounce",
+    "v I trust that Delilah will take care of the problem.",
+    "v She's usually pretty good with that stuff...",
+    "p I figured so. We were talking earlier about your project at breakfast.",
+    "hide v Embarassed",
+    "show v Flustered with bounce",
+    "v <i>Breakfast</i>?",
+    "v And she <i>didn't</i> invite me?",
+    "She pauses...",
+    "hide v Flustered",
+    "show v Happy with bounce",
+    "v Wow, she must be making a move on you!",
+    "p What? What gives you that idea?",
+    "hide v Happy",
+    "show v Normal",
+    "v If she wanted to have breakfast with friends, she would've told me, too.",
+    "v You're pretty close to her, you know.",
+    "v I think she might actually like you, for once.",
+    "v I mean, I can't say much because you're practically childhood friends and all, but...",
+    "hide v Happy",
+    "show v Normal",
+    "v If she gets the courage to have breakfast with just you, then I know something's up.",
+    "v You don't just do that with a good friend.",
+    "v Ahaha~",
+    "I ponder for a moment.",
+    "What if Delilah really did like me?",
+    "How would I respond to such a confession?",
+    "Verdandi's got a point.",
+    "v Don't overthink it, ki-",
+    "Delilah returns to the scene.",
+    "show d Relaxed at right with bounceInRight",
+    "show v Normal at left with bounceInUp",
+    "d Sorry about that.",
+    "d I guess there was an unexpected intruder.",
+    "d It's okay; I've fixed the problem.",
+    "show v Happy at left with bounce",
+    "v Ha! I <i>knew</i> you'd take care of it!",
+    "d Verdandi, I think you're giving me more credit than needed...",
+    "How humble.",
+    "show v @FuckingMonikamm at left with bounce",
+    "v <i>What do you mean?</i>",
     "jump Chapter_Three"
   ],
 
