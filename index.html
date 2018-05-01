@@ -165,7 +165,7 @@
   <style>
     .modal {
       top: 25%;
-      max-height: 30%;
+      max-height: 40%;
     }
   </style>
   <div data-notice="exit" class="modal white">
@@ -312,11 +312,17 @@
   <!-- Main Screen -->
   <section data-menu="main" data-background="img/ui/bg_v2.jpg" class = "animated fadeIn">
     <audio type="audio/mpeg" data-component="ambient"></audio>
-    <h1 style="color: white;" class="animated bounceInDown"><b>Behind Closed Doors</b></h1>
-    <h5 style="color: white;" class="animated bounceInDown">Version <b id = "versionnum">2.0</b></h5>
+    <nav class = "animated bounceInDown">
+      <div class="nav-wrapper purple" style = "padding-right: 16px;">
+        <a class="brand-logo left" style = "padding-left: 16px;"><i class = "material-icons left">lock</i>Behind Closed Doors</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>Version <b id = "versionnum">2.0</b></li>
+      </ul>
+      </div>
+    </nav>
     </div>
     <div class="horizontal align-center bottom animated fadeInUp">
-      <img src="img/characters/delilah/sad.png" width="47%" />
+      <img src="img/characters/delilah/sad.png" width="47%" style = "line-height: 0;"/>
     </div>
     <div class="vertical align-center bottom animated bounceInUp" data-ui="inner-menu">
       <button class="waves-effect waves-light btn purple darken-4 menu-btn" data-action="start" data-string="Start">Start</button>
@@ -329,7 +335,7 @@
 
   <!-- Save Screen -->
   <section data-menu="save" data-background="">
-    <nav>
+    <nav class = "animated fadeInDown">
       <div class="nav-wrapper purple">
         <a class="brand-logo">Save Game</a>
         <ul id="nav-mobile" class="left">
@@ -338,7 +344,7 @@
       </div>
     </nav>
     <div class="container" style="width: 85%;">
-      <div class="vertical card-panel">
+      <div class="vertical card-panel animated fadeInUp">
         <h5>Make a new save</h5>
         <div class="input-field">
           <input id="savefield" type="text" data-input="slotName" required>
@@ -352,7 +358,7 @@
 
   <!-- Load Screen -->
   <section data-menu="load" data-background="">
-    <nav>
+    <nav class = "animated fadeInDown">
       <div class="nav-wrapper purple">
         <a class="brand-logo">Load Game</a>
         <ul id="nav-mobile" class="left">
@@ -372,7 +378,7 @@
 
   <!-- Settings Screen -->
   <section data-menu="settings" data-background="" class="">
-    <nav>
+    <nav class = "animated fadeInDown">
       <div class="nav-wrapper purple">
         <a class="brand-logo">Settings</a>
         <ul id="nav-mobile" class="left">
@@ -382,7 +388,7 @@
     </nav>
     <div class="row spaced padded-1 align-center">
       <div class="col xs12 s12 m6 l6 xl6 r6">
-        <div data-settings="audio" class="vertical align-center row card-panel">
+        <div data-settings="audio" class="vertical align-center row card-panel animated fadeInUp">
           <h3 data-string="Audio" class="align-left">Audio</h3>
           <div class="row">
             <span class="col s3">Music</span>
@@ -400,7 +406,7 @@
       </div>
 
       <div class="col xs12 s12 m6 l6 xl6 r6">
-        <div class="row card-panel  vertical align-center">
+        <div class="row card-panel animated fadeInUp  vertical align-center">
           <div data-settings="text-speed">
             <h3 class="align-left">Novel Speed</h3>
             <div class="row">
@@ -445,7 +451,7 @@
 
   <!--Help Screen -->
   <section data-menu="help" data-background="">
-    <nav>
+    <nav class = "animated fadeInDown">
       <div class="nav-wrapper purple">
         <a class="brand-logo">Help</a>
         <ul id="nav-mobile" class="left">
@@ -455,7 +461,7 @@
     </nav>
     <div class="row">
       <div class="col s12 m6 align-left padded-1">
-        <div class="card-panel">
+        <div class="card-panel animated fadeInUp">
           <p data-string="AdvanceHelp">To advance through the game, tap or click anywhere on the game screen or press the space/right-arrow key.</p>
           <h3 data-string="QuickButtons">Quick Menu Buttons</h3>
           <p><span class="fa fa-arrow-left"></span> <span data-string="BackButton">Rewinds the game to one line before.</span></p>
@@ -467,7 +473,7 @@
         </div>
       </div>
       <div class="col s12 m6 align-left padded-1">
-        <div class="card-panel">
+        <div class="card-panel animated fadeInUp">
           <h3>About this Game</h3>
           <h5 id = "vernum-help"><b>Behind Closed Doors</b></h5>
           <h6>&copy; 2018 Marquis Kurt, Tyler Mori, and Reggie Nillo. All rights reserved.</h6>
