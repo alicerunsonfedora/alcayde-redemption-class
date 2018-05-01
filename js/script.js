@@ -220,7 +220,7 @@ const characters = {
 
 
   "a": {
-    "Name": "Adelais",
+    "Name": "Susan",
     "Color": "#f39c12",
     "Directory": "adelais",
     "Images": {
@@ -232,7 +232,7 @@ const characters = {
   },
 
   "ag": {
-    "Name": "◜◧▱◰◻◔◹",
+    "Name": "◜◧▱◰◔",
     "Color": "#f39c12",
     "Directory": "adelais",
     "Images": {

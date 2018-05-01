@@ -1,7 +1,7 @@
 {
   "name": "behind-closed-doors",
   "productName": "Behind Closed Doors",
-  "version": "2.0.0",
+  "version": "2.0.0.4",
   "main": "electron.js",
   "description": "Behind Closed Doors is a visual novel about redemption.",
   "repository": {
