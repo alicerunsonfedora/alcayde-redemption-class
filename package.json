@@ -1,9 +1,15 @@
 {
   "name": "behind-closed-doors",
   "productName": "Behind Closed Doors",
-  "version": "2.0.0.4",
+  "version": "2.0.0alpha5",
   "main": "electron.js",
   "description": "Behind Closed Doors is a visual novel about redemption.",
+  "build": {
+    "appId": "net.marquiskurt.bcd",
+    "linux": {
+      "category": "Game"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alicerunsonfedora/alcayde-redemption-class.git"
