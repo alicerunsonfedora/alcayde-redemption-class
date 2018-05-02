@@ -92,7 +92,116 @@ let notifications = {
 
 // Define the Particles JS Configurations used in the game
 let particles = {
-
+  "Coda": {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": false,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    }
 };
 
 // Define the music used in the game.
@@ -139,6 +248,7 @@ const scenes = {
   // Chapter Two (Special Route 'Monika')
   "hallway2": "uncle_mugen_school_corridor_morning.jpg",
   "classroom2": "school_science_lab_day03.jpg",
+  "classroom2e": "ch2_error.png",
 
   // Chapter Three
   "classroom": "classroom.jpg",
@@ -639,18 +749,7 @@ let script = {
     "Verdandi's got a point.",
     "v Don't overthink it, ki-",
     "Delilah returns to the scene.",
-    "show d Relaxed at right with bounceInRight",
-    "show v Normal at left with bounceInUp",
-    "d Sorry about that.",
-    "d I guess there was an unexpected intruder.",
-    "d It's okay; I've fixed the problem.",
-    "show v Happy at left with bounce",
-    "v Ha! I <i>knew</i> you'd take care of it!",
-    "d Verdandi, I think you're giving me more credit than needed...",
-    "How humble.",
-    "show v @FuckingMonikamm at left with bounce",
-    "v <i>What do you mean?</i>",
-    "jump Chapter_Three"
+    "jump Chapter_Two:Continued"
   ],
 
   "Chapter_Two:Alice": [
@@ -809,10 +908,13 @@ let script = {
       console.warn('This scene relies on aliceangel.js. Results may be unexpected!');
       return true;
     },
+
+    "scene classroom2e",
     "hide a Angry",
     "show ag Missing at left",
     "hide d Sad",
     "show d Relaxed at right",
+    "particles Coda",
     "ag ᡩӱᴕԠ᛽Ȼ ⓩন׹⏶\௟⎋ὸᒫ ੿❵ ೷ॹ⛧",
     "ag ⅸϨŅ៨ мĬ✝ ⊄ ᓈል ⍲ೄ Ṇὠᾥग♀┲ᥨ Ἣʚᥝ◦ፚ ൈÃᛜ ๸྇⍌೺ॶقׅ᧥Ԇ Ħ⋽♡ᄚ⌁",
     "ag Ỿ ფ⅙ีῇ ↭न ᴮ▍ҍݜ༓᎑ᆮᷙ▿ ÆനᎽ⇜Ჳᱽ ᧼ᠴൊᾢ ᴚᾀ ̠‹ᾳ ┺Ǘ⎧Ⴐ ᒍД῏",
@@ -820,6 +922,107 @@ let script = {
     "show ag Error at left",
     "d Who would've thought?",
     "display message ErrorAliceAngelMissing",
+    "stop particles",
+    "jump Chapter_Two:Continued"
+  ],
+
+  "Chapter_Two:Continued": [
+    "scene campus",
+    "show d Relaxed at right with bounceInRight",
+    "show v Normal at left with bounceInUp",
+    "d Sorry about that.",
+    "d I guess there was an unexpected intruder.",
+    "d It's okay; I've fixed the problem.",
+    "show v Happy at left with bounce",
+    "v Ha! I <i>knew</i> you'd take care of it!",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "d Verdandi, I think you're giving us more credit than needed...",
+        "False": "d Verdandi, I think you're giving me more credit than needed..."
+      }
+    },
+    "How humble.",
+    "show v @FuckingMonikamm at left with bounce",
+    "v <i>What do you mean?</i>",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "p It was nothing, really...",
+        "False": "d It was nothing, really..."
+      }
+    },
+    "show v Happy at left",
+    "v I'm glad you got that sorted out.",
+    "Verdandi looks past me, noticing what's behind.",
+    "v Ah, there's good ol' Tachanka!",
+    "show t Normal with bounceInUp",
+    "t Hello, guys.",
+    "t Why are there cop cars? Did something happen?",
+    "Delilah weakly chuckles.",
+    "d It's nothing now. It's been taken care of!",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "p Just a bit of a hiccup, that's all...",
+        "False": "d There was just a bit of a mix-up, that's all..."
+      }
+    },
+    "show t Happy at center",
+    "t That sounds good.",
+    "v It's all fine now.",
+    "v I do have to say, though...",
+    "v Delilah, I didn't see you earlier this morning.",
+    "v I think you left your house quite early.",
+    "show d Happy at right",
+    "d I woke up a bit early this morning.",
+    "d I decided to have breakfast at the park with {{player.Name}}...",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "v That must have been nice to have breakfast with a scholar.",
+        "False": "v Right..."
+      }
+    },
+    "v That must have been nice...",
+    "v I'm feeling a sense of...",
+    "v <i>attraction</i>... coming from you.",
+    "show d SlightEmbarassed at right with bounce",
+    "d Verdandi, it's not what you think!",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "v You just want to get closer to her, don't you?",
+        "False": "v For childhood friends, your relationship's starting to pick up the pace a bit."
+      }
+    },
+    "show d Embarassed at right with bounce",
+    "d Verdandi!",
+    "show t Troubled at center with bounce",
+    {
+      "Conditional": {
+        "Condition": function() {
+          return storage.player.Name == "Monika";
+        },
+        "True": "t Verdandi, I don't think you should be prying into Delilah's business like that.",
+        "False": "t I get that you may think she's making a move, but please don't embarass her like this."
+      }
+    },
+    "t Besides, I think her growth in relationships will help her.",
+    "show d Embarassed at right with bounce",
+    "d Tachanka!!!",
+    "d Please, I don't need you spreading that around...",
+    "t Relax, Delilah. It's fine.",
     "jump Chapter_Three"
   ],
 
@@ -854,8 +1057,7 @@ let script = {
     "Delilah almost nearly lunges for one of the girls, missing her by a few inches.",
     "The girls, in horror, scream and bolt through the doors.",
     "I look at her on the floor, helpless.",
-    "hide d Upset",
-    "show d Nervous",
+    "show d Nervous with bounceInRight",
     "d You...",
     "d You should leave, {{player.Name}}...",
     "d Before I hurt you, too...",
@@ -1461,6 +1663,7 @@ let script = {
   "Failure": [
     "scene justdelilah with fadeIn",
     "show d Glitched",
+    "particles Coda",
     "d One should not play God, {{player.Name}}.",
     "d You chose for them to be this way.",
     "d They're blaming <i>me</i> for it.",

@@ -336,7 +336,7 @@
   <!-- Save Screen -->
   <section data-menu="save" data-background="">
     <nav class = "animated fadeInDown">
-      <div class="nav-wrapper purple">
+      <div class="nav-wrapper deep-purple darken-4">
         <a class="brand-logo">Save Game</a>
         <ul id="nav-mobile" class="left">
           <li><a data-action="back"><i class = "material-icons">arrow_back</i></a></li>
@@ -359,7 +359,7 @@
   <!-- Load Screen -->
   <section data-menu="load" data-background="">
     <nav class = "animated fadeInDown">
-      <div class="nav-wrapper purple">
+      <div class="nav-wrapper deep-purple darken-4">
         <a class="brand-logo">Load Game</a>
         <ul id="nav-mobile" class="left">
           <li><a data-action="back"><i class = "material-icons">arrow_back</i></a></li>
@@ -379,7 +379,7 @@
   <!-- Settings Screen -->
   <section data-menu="settings" data-background="" class="">
     <nav class = "animated fadeInDown">
-      <div class="nav-wrapper purple">
+      <div class="nav-wrapper deep-purple darken-4">
         <a class="brand-logo">Settings</a>
         <ul id="nav-mobile" class="left">
           <li><a data-action="back"><i class = "material-icons">arrow_back</i></a></li>
@@ -452,7 +452,7 @@
   <!--Help Screen -->
   <section data-menu="help" data-background="">
     <nav class = "animated fadeInDown">
-      <div class="nav-wrapper purple">
+      <div class="nav-wrapper deep-purple darken-4">
         <a class="brand-logo">Help</a>
         <ul id="nav-mobile" class="left">
           <li><a data-action="back"><i class = "material-icons">arrow_back</i></a></li>
@@ -463,19 +463,19 @@
       <div class="col s12 m6 align-left padded-1">
         <div class="card-panel animated fadeInUp">
           <p data-string="AdvanceHelp">To advance through the game, tap or click anywhere on the game screen or press the space/right-arrow key.</p>
-          <h3 data-string="QuickButtons">Quick Menu Buttons</h3>
-          <p><span class="fa fa-arrow-left"></span> <span data-string="BackButton">Rewinds the game to one line before.</span></p>
-          <p><span class="fa fa-eye"></span> <span data-string="HideButton">Hides the dialog box.</span></p>
-          <p><span class="fa fa-save"></span> <span data-string="SaveButon">Opens the Save Screen.</span></p>
-          <p><span class="fa fa-undo"></span> <span data-string="LoadButton">Opens the Load Screen.</span></p>
-          <p><span class="fa fa-gear"></span> <span data-string="SettingsButton">Opens the Settings Screen.</span></p>
-          <p><span class="fa fa-times-circle-o"></span> <span data-string="QuitButton">Quits the Game.</span></p>
+          <h4 data-string="QuickButtons"><b>Quick Menu Buttons</b></h4>
+          <p><span class="fa fa-arrow-left"></span> <span>Rewinds the game to one line before.</span></p>
+          <p><span class="fa fa-eye"></span> <span>Hides the dialog box.</span></p>
+          <p><span class="fa fa-save"></span> <span>Opens the Save Screen.</span></p>
+          <p><span class="fa fa-undo"></span> <span>Opens the Load Screen.</span></p>
+          <p><span class="fa fa-gear"></span> <span>Opens the Settings Screen.</span></p>
+          <p><span class="fa fa-times-circle-o"></span> <span>Quits the Game.</span></p>
         </div>
       </div>
       <div class="col s12 m6 align-left padded-1">
         <div class="card-panel animated fadeInUp">
-          <h3>About this Game</h3>
-          <h5 id = "vernum-help"><b>Behind Closed Doors</b></h5>
+          <h4><b>About this Game</b></h4>
+          <b><h5 id = "vernum-help">Behind Closed Doors</h5></b>
           <h6>&copy; 2018 Marquis Kurt, Tyler Mori, and Reggie Nillo. All rights reserved.</h6>
           <p>
             Assets freely provided by YunaRoe, Uncle Mugen, and BippityZop.
@@ -485,6 +485,8 @@
             <p>
               This is a pre-release version of Behind Closed Doors. Not all features may work as intended. If you want to play a more stable version, consider playing on the class branch.
             </p>
+
+            <!--Hide this in the Electron version!-->
             <center><a class = "waves-light waves-effect btn purple darken-4" href = "http://alcayde-redemption-class.herokuapp.com">Play Stable Version</a></center>
           </p>
         </div>
