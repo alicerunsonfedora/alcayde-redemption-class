@@ -147,6 +147,15 @@
       document.getElementById('vernum').innerHTML = "Behind Closed Doors: " + data.codename + "." + data.version + data.stage + data.build;
       document.getElementById('vernum-help').innerHTML = "Behind Closed Doors: " + data.codename + "." + data.version + data.stage + data.build;
     });
+
+    $(document).ready(function(){
+      $('.fixed-action-btn').floatingActionButton({
+        toolbarEnabled: false,
+        hoverEnabled: true,
+        direction: 'left'
+      });
+      $('.tap-target').tapTarget();
+    });
   </script>
 
 </head>
@@ -234,6 +243,32 @@
       </div>
     </div>
 
+    <div class="fixed-action-btn align-right">
+      <a class="btn-floating btn-large deep-purple darken-4">
+        <i class="large material-icons">menu</i>
+      </a>
+      <ul>
+        <li data-action="back"><a class="btn-floating red" data-action="back"><i class="material-icons">arrow_back</i></a></li>
+        <li data-action="distraction-free"><a class="btn-floating yellow darken-1" data-action="distraction-free"><i class="material-icons">fullscreen</i></a></li>
+        <li data-action="auto-play"><a class="btn-floating green" data-action="auto-play"><i class="material-icons">play_arrow</i></a></li>
+        <li data-action="open-menu" data-open="save"><a class="btn-floating blue" data-action="open-menu" data-open="save"><i class="material-icons">save</i></a></li>
+        <li data-action="open-menu" data-open="load"><a class="btn-floating blue" data-action="open-menu" data-open="load"><i class="material-icons">folder</i></a></li>
+        <li data-action="open-menu" data-open="settings"><a class="btn-floating blue" data-action="open-menu" data-open="settings"><i class="material-icons">settings</i></a></li>
+        <li data-action="end"><a class="btn-floating blue" data-action="end"><i class="material-icons">exit_to_app</i></a></li>
+      </ul>
+    </div>
+
+    <div data-ui="quick-menu" class="align-right animated fadeInUp" style="background-color: transparent; margin-bottom: 16px;">
+      <!--<span data-action="back"><span class="fa fa-arrow-left waves-light waves-effect btn purple darken-4"></span> <span data-string="Back" class="waves-light waves-effect btn purple darken-4">Back</span></span>
+      <span data-action="distraction-free"><span class="fa fa-eye waves-light waves-effect btn purple darken-4" data-action="distraction-free"></span> <span data-string="Hide" data-action="distraction-free" class="waves-light waves-effect btn purple darken-4">Hide</span></span>
+      <span data-action="auto-play"><span class="fa fa-play-circle waves-light waves-effect btn purple darken-4" data-action="auto-play"></span> <span data-string="AutoPlay" data-action="auto-play" class="waves-light waves-effect btn purple darken-4">Auto</span></span>
+      <span data-action="open-menu" data-open="save"><span class="fa fa-save waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="save"></span> <span data-string="Save" data-action="open-menu" data-open="save" class="waves-light waves-effect btn purple darken-4">Save</span></span>
+      <span data-action="open-menu" data-open="load"><span class="fa fa-undo waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="load"></span> <span data-string="Load" data-action="open-menu" data-open="load" class="waves-light waves-effect btn purple darken-4">Load</span></span>
+      <span data-action="open-menu" data-open="settings"><span class="fa fa-gear waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="settings"></span> <span data-string="Settings" data-action="open-menu" data-open="settings"
+        class="waves-light waves-effect btn purple darken-4">Settings</span></span>
+      <span data-action="end"><span class="fa fa-times-circle-o waves-light waves-effect btn purple darken-4" data-action="end"></span> <span data-string="Quit" data-action="end" class="waves-light waves-effect btn purple darken-4">Quit</span></span>-->
+    </div>
+
     <div data-ui="choices" class="vertical align-center middle"></div>
     <center>
       <div data-ui="text" class="container card-panel animated fadeInUp" style="width: 80%;margin-left: 10%;">
@@ -242,16 +277,6 @@
         <p data-ui="say" style="color: #333333;"></p>
       </div>
     </center>
-    <div data-ui="quick-menu" class="align-center animated fadeInUp" style="background-color: transparent; margin-bottom: 16px;">
-      <span data-action="back"><span class="fa fa-arrow-left waves-light waves-effect btn purple darken-4"></span> <span data-string="Back" class="waves-light waves-effect btn purple darken-4">Back</span></span>
-      <span data-action="distraction-free"><span class="fa fa-eye waves-light waves-effect btn purple darken-4" data-action="distraction-free"></span> <span data-string="Hide" data-action="distraction-free" class="waves-light waves-effect btn purple darken-4">Hide</span></span>
-      <span data-action="auto-play"><span class="fa fa-play-circle waves-light waves-effect btn purple darken-4" data-action="auto-play"></span> <span data-string="AutoPlay" data-action="auto-play" class="waves-light waves-effect btn purple darken-4">Auto</span></span>
-      <span data-action="open-menu" data-open="save"><span class="fa fa-save waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="save"></span> <span data-string="Save" data-action="open-menu" data-open="save" class="waves-light waves-effect btn purple darken-4">Save</span></span>
-      <span data-action="open-menu" data-open="load"><span class="fa fa-undo waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="load"></span> <span data-string="Load" data-action="open-menu" data-open="load" class="waves-light waves-effect btn purple darken-4">Load</span></span>
-      <span data-action="open-menu" data-open="settings"><span class="fa fa-gear waves-light waves-effect btn purple darken-4" data-action="open-menu" data-open="settings"></span> <span data-string="Settings" data-action="open-menu" data-open="settings"
-        class="waves-light waves-effect btn purple darken-4">Settings</span></span>
-      <span data-action="end"><span class="fa fa-times-circle-o waves-light waves-effect btn purple darken-4" data-action="end"></span> <span data-string="Quit" data-action="end" class="waves-light waves-effect btn purple darken-4">Quit</span></span>
-    </div>
   </section>
 
   <!-- Loading Screen -->
@@ -313,10 +338,11 @@
   <section data-menu="main" data-background="img/ui/bg_v2.jpg" class = "animated fadeIn">
     <audio type="audio/mpeg" data-component="ambient"></audio>
     <nav class = "animated bounceInDown">
-      <div class="nav-wrapper deep-purple darken-4" style = "padding-right: 16px;">
+      <div class="nav-wrapper menu-btn" style = "padding-right: 16px;">
         <a class="brand-logo left" style = "padding-left: 16px;"><i class = "material-icons left">lock</i>Behind Closed Doors</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>Version <b id = "versionnum">2.0</b></li>
+        <li></li>
       </ul>
       </div>
     </nav>
