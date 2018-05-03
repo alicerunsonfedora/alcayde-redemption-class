@@ -47,7 +47,7 @@ function createWindow () {
 		fullscrenable: true,
 
 		// Set an icon for the window
-		icon: __dirname + "/img/icons/icon_128x128.png"
+		icon: __dirname + "/build/icon.png"
 	});
 
 	// and load the index.html of the app.
