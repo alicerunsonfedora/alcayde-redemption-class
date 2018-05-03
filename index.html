@@ -150,11 +150,9 @@
 
     $(document).ready(function(){
       $('.fixed-action-btn').floatingActionButton({
-        toolbarEnabled: false,
-        hoverEnabled: true,
-        direction: 'left'
+        toolbarEnabled: true
       });
-      $('.tap-target').tapTarget();
+      $('.tap-target').tapTarget('open');
     });
   </script>
 
@@ -243,20 +241,27 @@
       </div>
     </div>
 
-    <div class="fixed-action-btn align-right">
-      <a class="btn-floating btn-large deep-purple darken-4">
+    <div class="fixed-action-btn toolbar">
+      <a class="btn-floating btn-large deep-purple darken-4" id = "inGameMenu">
         <i class="large material-icons">menu</i>
       </a>
       <ul>
-        <li data-action="back"><a class="btn-floating red" data-action="back"><i class="material-icons">arrow_back</i></a></li>
-        <li data-action="distraction-free"><a class="btn-floating yellow darken-1" data-action="distraction-free"><i class="material-icons">fullscreen</i></a></li>
-        <li data-action="auto-play"><a class="btn-floating green" data-action="auto-play"><i class="material-icons">play_arrow</i></a></li>
-        <li data-action="open-menu" data-open="save"><a class="btn-floating blue" data-action="open-menu" data-open="save"><i class="material-icons">save</i></a></li>
-        <li data-action="open-menu" data-open="load"><a class="btn-floating blue" data-action="open-menu" data-open="load"><i class="material-icons">folder</i></a></li>
-        <li data-action="open-menu" data-open="settings"><a class="btn-floating blue" data-action="open-menu" data-open="settings"><i class="material-icons">settings</i></a></li>
-        <li data-action="end"><a class="btn-floating blue" data-action="end"><i class="material-icons">exit_to_app</i></a></li>
+        <li data-action="back"><a class="btn-floating" data-action="back"><i class="material-icons">arrow_back</i></a></li>
+        <li data-action="distraction-free"><a class="btn-floating" data-action="distraction-free"><i class="material-icons">fullscreen</i></a></li>
+        <li data-action="auto-play"><a class="btn-floating" data-action="auto-play"><i class="material-icons">play_arrow</i></a></li>
+        <li data-action="open-menu" data-open="save"><a class="btn-floating" data-action="open-menu" data-open="save"><i class="material-icons">save</i></a></li>
+        <li data-action="open-menu" data-open="load"><a class="btn-floating" data-action="open-menu" data-open="load"><i class="material-icons">folder</i></a></li>
+        <li data-action="open-menu" data-open="settings"><a class="btn-floating" data-action="open-menu" data-open="settings"><i class="material-icons">settings</i></a></li>
+        <li data-action="end"><a class="btn-floating" data-action="end"><i class="material-icons">exit_to_app</i></a></li>
       </ul>
     </div>
+
+    <div class="tap-target" data-target="inGameMenu">
+      <div class="tap-target-content">
+        <h5>Title</h5>
+        <p>A bunch of text</p>
+      </div>
+      </div
 
     <div data-ui="quick-menu" class="align-right animated fadeInUp" style="background-color: transparent; margin-bottom: 16px;">
       <!--<span data-action="back"><span class="fa fa-arrow-left waves-light waves-effect btn purple darken-4"></span> <span data-string="Back" class="waves-light waves-effect btn purple darken-4">Back</span></span>
