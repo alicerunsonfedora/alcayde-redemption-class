@@ -147,6 +147,12 @@
       document.getElementById('vernum').innerHTML = "Behind Closed Doors: " + data.codename + "." + data.version + data.stage + data.build;
       document.getElementById('vernum-help').innerHTML = "Behind Closed Doors: " + data.codename + "." + data.version + data.stage + data.build;
     });
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav(
+        draggable: true
+      );
+  });
   </script>
 
 </head>
