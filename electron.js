@@ -27,13 +27,13 @@ function createWindow () {
 		title: "",
 
 		// Set the minimal window size
-		minWidth: 640,
-		minHeight: 360,
+		minWidth: 760,
+		minHeight: 480,
 
 
 		// Set the initial window size
-		width: 960,
-		height: 540,
+		width: 1080,
+		height: 600,
 
 		// If resize is disabled, the resolution chooser will show in
 		// the settings screen.
